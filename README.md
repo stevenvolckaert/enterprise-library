@@ -4,7 +4,7 @@
 components designed to assist software developers with writing less and semantically more meaningful code.
 
 In practice, the class libraries extend on types available in the various namespaces of the
-[.NET Framework Class Library (FCL)][1]. Therefore, it contains no application-specific code and has no depencencies
+[Framework Class Library (FCL)][1] (CoreFX for the *.NET Standard* target). Therefore, it contains no application-specific code and has no depencencies
 to third-party .NET libraries or frameworks.
 
 ## NuGet
@@ -13,7 +13,7 @@ Enterprise Library will be available on [NuGet](https://www.nuget.org/) later.
 
 ## Library contents
 
-The library comprises a collection of class libraries:
+Steven Volckaert's Enterprise Library comprises a collection of class libraries:
 
 | Assembly name | Description |
 |---------------|-------------|
