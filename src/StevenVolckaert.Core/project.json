@@ -1,0 +1,24 @@
+{
+  "title": "Steven Volckaert's Enterprise Library - Core",
+  "copyright": "Copyright (c) 2016 Steven Volckaert",
+  "description": "The Enterprise Library Core assembly contains reusable software components designed to assist software developers with writing less and more readable code. It contains commonly used functions extending types defined in the System namespace.",
+  "language": "en-US",
+  "version": "0.1.0-*",
+  "authors": [
+    "Steven Volckaert"
+  ],
+  "frameworks": {
+    // TODO Target .NET Framework 3.5.
+    //"net35": {},
+    "net45": {},
+    "net462": {},
+    "netstandard1.6": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
+    }
+  },
+  "buildOptions": {
+    "xmlDoc": true
+  }
+}
