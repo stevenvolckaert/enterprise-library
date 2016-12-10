@@ -1,11 +1,22 @@
 ﻿namespace StevenVolckaert
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
+    /// <summary>
+    /// Provides statically-typed access to country codes.
+    /// </summary>
     public static class CountryCodes
     {
-        // See https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
-        public static readonly Dictionary<string, string> ISO_3166_1_alpha_2 =
+        /// <summary>
+        /// A key-value collection where each key is a ISO 3166-1 alpha-2 country code and each value its associated
+        /// country name.
+        /// </summary>
+        /// <remarks>
+        /// See https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements for the complete
+        /// list of ISO 3166-1 alpha-2 country codes.
+        /// </remarks>
+        public static ReadOnlyDictionary<string, string> ISO_3166_1_alpha_2 { get; } =
             new Dictionary<string, string>
             {
                 { "AD", "Andorra" },
@@ -34,7 +45,7 @@
                 { "BI", "Burundi" },
                 { "BJ", "Benin" },
                 { "BL", "Saint Barthélemy" }
-            };
+            }.AsReadOnly();
 
         //BM  Bermuda 1974.bm ISO 3166 - 2:BM
         //BN  Brunei Darussalam   1974.bn ISO 3166 - 2:BN ISO country name follows UN designation(common name: Brunei)
