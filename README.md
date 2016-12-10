@@ -30,6 +30,10 @@ All libraries target multiple .NET platforms:
 * The library is built with modularity and [separation of concerns][3] in mind.
 * Class libraries, namespaces and types are named in accordance with the [.NET Framework Design Guidelines][4].
 
+## License
+
+Steven Volckaert's Enterprise Library is licensed under the [MIT license](LICENSE).
+
 ## External links
 
 * [Understanding .NET Core, NETStandard, .NET Core applications and ASP.NET Core][2]. Lock, Andrew. May 11, 2016.
