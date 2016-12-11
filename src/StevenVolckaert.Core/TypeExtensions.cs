@@ -10,6 +10,13 @@
     /// </summary>
     public static class TypeExtensions
     {
+#if NET35
+        internal static Type GetTypeInfo(this Type type)
+        {
+            return type;
+        }
+#endif
+
         /// <summary>
         /// Returns a value that indicates whether the type is a <see cref="bool"/> or nullable <see cref="bool"/>.
         /// </summary>
@@ -172,5 +179,15 @@
         {
             return type.PropertyMetadata(attributeType).Select(propertyInfo => propertyInfo.Name);
         }
+
     }
+#if NET35
+    internal static class CustomAttributeExtensions
+    {
+        public static bool IsDefined(PropertyInfo propertyInfo, Type attributeType)
+        {
+            return Attribute.IsDefined(propertyInfo, attributeType);
+        }
+    }
+#endif
 }

@@ -26,11 +26,7 @@
             get { return _currentCultureName; }
             set
             {
-#if NET35
-                if (value == _currentCultureName || string.IsNullOrEmpty(value))
-#else
-                if (value == _currentCultureName || string.IsNullOrWhiteSpace(value))
-#endif
+                if (value.IsNullOrWhiteSpace() || value == _currentCultureName)
                     return;
 
                 SetCulture(value);
@@ -160,7 +156,10 @@
             }
             catch (ArgumentNullException)
             {
-                Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, Resources.ValueNull, nameof(cultureName)));
+                Debug.WriteLine(
+                    message: string.Format(CultureInfo.CurrentCulture, Resources.ValueNull, nameof(cultureName)),
+                    callerMemberName: nameof(GetCultureInfo)
+                );
                 return null;
             }
 #if NET35
@@ -169,7 +168,10 @@
             catch (CultureNotFoundException)
 #endif
             {
-                Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, Resources.IllegalCultureName, cultureName));
+                Debug.WriteLine(
+                    message: string.Format(CultureInfo.CurrentCulture, Resources.IllegalCultureName, cultureName),
+                    callerMemberName: nameof(GetCultureInfo)
+                );
                 return null;
             }
         }
@@ -181,11 +183,7 @@
         /// <returns>The name of the neutral culture, or <c>null</c> if the culture is not supported.</returns>
         public static string GetNeutralCultureName(string cultureName)
         {
-#if NET35
-            if (string.IsNullOrEmpty(cultureName))
-#else
-            if (string.IsNullOrWhiteSpace(cultureName))
-#endif
+            if (cultureName.IsNullOrWhiteSpace())
                 return null;
 
             var cultureInfo = GetCultureInfo(cultureName);
@@ -251,11 +249,7 @@
         /// </exception>
         public string SetCulture(string cultureName)
         {
-#if NET35
-            if (string.IsNullOrEmpty(cultureName))
-#else
-            if (string.IsNullOrWhiteSpace(cultureName))
-#endif
+            if (cultureName.IsNullOrWhiteSpace())
                 throw new ArgumentException(Resources.ValueNullEmptyOrWhiteSpace, nameof(cultureName));
 
             if (!IsSpecificCultureSupported(cultureName))

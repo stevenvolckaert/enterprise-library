@@ -16,7 +16,11 @@
         /// See https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements for the complete
         /// list of ISO 3166-1 alpha-2 country codes.
         /// </remarks>
+#if NET35
+        public static Dictionary<string, string> ISO_3166_1_alpha_2 { get; } =
+#else
         public static ReadOnlyDictionary<string, string> ISO_3166_1_alpha_2 { get; } =
+#endif
             new Dictionary<string, string>
             {
                 { "AD", "Andorra" },
@@ -45,7 +49,11 @@
                 { "BI", "Burundi" },
                 { "BJ", "Benin" },
                 { "BL", "Saint Barthélemy" }
+#if NET35
+            };
+#else
             }.AsReadOnly();
+#endif
 
         //BM  Bermuda 1974.bm ISO 3166 - 2:BM
         //BN  Brunei Darussalam   1974.bn ISO 3166 - 2:BN ISO country name follows UN designation(common name: Brunei)

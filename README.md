@@ -15,9 +15,9 @@ Enterprise Library will be available on [NuGet](https://www.nuget.org/) later.
 
 Steven Volckaert's Enterprise Library comprises a collection of class libraries:
 
-| Assembly name | Targets | Description |
-|---------------|---------|-------------|
-| `StevenVolckaert.Core` | [.NET Standard 1.5][2]<br>.NET Framework 4.5 | Contains commonly used functions extending types defined in the `System` namespace. |
+| Assembly name | Description | Targets |
+|---------------|-------------|---------|
+| `StevenVolckaert.Core` | Contains commonly used functions extending types defined in the `System` namespace. | [.NET Standard 1.5][2]<br>.NET Framework 3.5<br>.NET Framework 4.5 |
 
 ## Design
 

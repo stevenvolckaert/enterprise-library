@@ -13,6 +13,30 @@
     public static class StringExtensions
     {
         /// <summary>
+        /// Indicates whether a specified string is <c>null</c>, empty, or consists only of white-space characters.
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns>
+        /// <c>true</c> if the <paramref name="value"/> parameter is <c>null</c> or <see cref="string.Empty"/>,
+        /// or if <paramref name="value"/> consists exclusively of white-space characters.
+        /// </returns>
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+#if NET35
+            if (value == null)
+                return true;
+
+            for (int i = 0; i < value.Length; i++)
+                if (!char.IsWhiteSpace(value[i]))
+                    return false;
+
+            return true;
+#else
+            return string.IsNullOrWhiteSpace(value);
+#endif
+        }
+
+        /// <summary>
         /// Returns the string, or a default value if the string is <c>null</c> or empty.
         /// </summary>
         /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
@@ -31,7 +55,7 @@
         /// <returns>The string, or the default value if the string is <c>null</c>, empty, or white space.</returns>
         public static string DefaultIfNullOrWhiteSpace(this string value, string defaultValue)
         {
-            return string.IsNullOrWhiteSpace(value) ? defaultValue : value;
+            return value.IsNullOrWhiteSpace() ? defaultValue : value;
         }
 
         /// <summary>

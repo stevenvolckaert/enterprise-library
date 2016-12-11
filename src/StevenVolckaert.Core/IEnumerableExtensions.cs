@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Linq;
+#if !NET35
+    using System.Collections.ObjectModel;
+#endif
 
     /// <summary>
     /// Provides extension methods for instances that implement the <see cref="IEnumerable{T}"/> interface.
@@ -269,7 +271,7 @@
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
 
-            return string.Join(separator, source);
+            return string.Join(separator, source.Select(x => x.ToString()).ToArray());
         }
 
         /// <summary>

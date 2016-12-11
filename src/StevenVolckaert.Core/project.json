@@ -7,14 +7,14 @@
   "authors": [
     "Steven Volckaert"
   ],
-  "dependencies": {
-    "NETStandard.Library": "1.6.1"
-  },
   "frameworks": {
-    // TODO Target .NET Framework 3.5.
-    //"net35": {},
+    "net35": {},
     "net45": {},
-    "netstandard1.5": {}
+    "netstandard1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.1"
+      }
+    }
   },
   "buildOptions": {
     "xmlDoc": true
