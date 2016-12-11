@@ -1,7 +1,7 @@
 {
   "title": "Steven Volckaert's Enterprise Library - Core",
   "copyright": "Copyright (c) 2016 Steven Volckaert",
-  "description": "The Enterprise Library Core assembly contains reusable software components designed to assist software developers with writing less and more readable code. It contains commonly used functions extending types defined in the System namespace.",
+  "description": "Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.",
   "language": "en-US",
   "version": "0.1.0-*",
   "authors": [
@@ -18,5 +18,12 @@
   },
   "buildOptions": {
     "xmlDoc": true
+  },
+  "packOptions": {
+    "projectUrl": "https://github.com/stevenvolckaert/enterprise-library",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/stevenvolckaert/enterprise-library"
+    }
   }
 }
