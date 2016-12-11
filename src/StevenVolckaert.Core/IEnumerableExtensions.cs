@@ -220,7 +220,7 @@
             }
         }
 
-#if (NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NETSTANDARD1_6)
+#if !NET35
         /// <summary>
         /// Creates a new <see cref="ObservableCollection{T}"/> from a sequence.
         /// </summary>

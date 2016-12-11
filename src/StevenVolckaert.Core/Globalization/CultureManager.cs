@@ -305,7 +305,7 @@
             var oldCultureName = CurrentCultureName;
             var newCulture = _supportedCultures[newCultureName];
 
-#if NETSTANDARD1_6
+#if (NETSTANDARD1_5 || NETSTANDARD1_6)
             CultureInfo.CurrentCulture = newCulture;
             CultureInfo.CurrentUICulture = newCulture;
 #else

@@ -4,7 +4,7 @@
     using System.Globalization;
     using System.Text;
 
-#if NETSTANDARD1_6
+#if (NETSTANDARD1_5 || NETSTANDARD1_6)
     using System.Runtime.InteropServices;
 #endif
 
@@ -50,7 +50,7 @@
                 )
             );
 
-#if NETSTANDARD1_6
+#if (NETSTANDARD1_5 || NETSTANDARD1_6)
             stringBuilder.AppendLine("OS Architecture: " + RuntimeInformation.OSArchitecture);
             stringBuilder.AppendLine("OS Description: " + RuntimeInformation.OSDescription);
             stringBuilder.AppendLine("Process Architecture: " + RuntimeInformation.ProcessArchitecture);

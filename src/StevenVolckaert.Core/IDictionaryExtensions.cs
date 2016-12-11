@@ -1,4 +1,4 @@
-﻿#if (NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NETSTANDARD1_6)
+﻿#if !NET35
 namespace StevenVolckaert
 {
     using System;
