@@ -24,6 +24,8 @@
     "repository": {
       "type": "git",
       "url": "https://github.com/stevenvolckaert/enterprise-library"
-    }
+    },
+    "licenseUrl": "https://github.com/stevenvolckaert/enterprise-library/blob/master/LICENSE",
+    "requireLicenseAcceptance": false
   }
 }
