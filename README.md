@@ -17,7 +17,7 @@ Steven Volckaert's Enterprise Library comprises a collection of class libraries:
 
 | Assembly name | Targets | Description |
 |---------------|---------|-------------|
-| `StevenVolckaert.Core` | <ul><li>[.NET Standard 1.5][2]</li><li>.NET Framework 4.5</li></ul> | Contains commonly used functions extending types defined in the `System` namespace. |
+| `StevenVolckaert.Core` | [.NET Standard 1.5][2]<br>.NET Framework 4.5 | Contains commonly used functions extending types defined in the `System` namespace. |
 
 ## Design
 
