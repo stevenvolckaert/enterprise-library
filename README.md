@@ -7,10 +7,6 @@ In practice, the class libraries extend on types available in the various namesp
 [Framework Class Library (FCL)][1] (CoreFX for the .NET Standard 1.5 target). Therefore, it contains no
 application-specific code and has no depencencies to third-party .NET libraries or frameworks.
 
-## NuGet
-
-Enterprise Library will be available on [NuGet](https://www.nuget.org/) later.
-
 ## Library contents
 
 Steven Volckaert's Enterprise Library comprises a collection of class libraries:
@@ -18,6 +14,12 @@ Steven Volckaert's Enterprise Library comprises a collection of class libraries:
 | Assembly name | Description | Targets |
 |---------------|-------------|---------|
 | `StevenVolckaert.Core` | Contains commonly used functions extending types defined in the `System` namespace. | [.NET Standard 1.5][2] \| .NET Framework 3.5 \| .NET Framework 4.5 |
+
+## NuGet
+
+Enterprise library is available on NuGet.
+
+* [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/)
 
 ## Design
 
