@@ -9,17 +9,18 @@ application-specific code and has no depencencies to third-party .NET libraries 
 
 ## Library contents
 
-Steven Volckaert's Enterprise Library comprises a collection of class libraries:
+Steven Volckaert's Enterprise Library comprises a collection of class libraries.
 
-| Assembly name | Description | Targets |
-|---------------|-------------|---------|
-| `StevenVolckaert.Core` | Contains commonly used functions extending types defined in the `System` namespace. | [.NET Standard 1.5][2] \| .NET Framework 3.5 \| .NET Framework 4.5 |
+| Assembly name | Description |
+|---------------|-------------|
+| `StevenVolckaert.Core` | Contains commonly used functions extending types defined in the `System` namespace. |
 
 ## NuGet
 
 Enterprise library is available on NuGet.
 
-* [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/)
+* [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/) (.NETFramework 3.5, .NETFramework 4.5,
+  .NETStandard 1.5)
 
 ## Design
 
@@ -34,6 +35,7 @@ Steven Volckaert's Enterprise Library is licensed under the [MIT license](LICENS
 
 * [Understanding .NET Core, NETStandard, .NET Core applications and ASP.NET Core][5]. Lock, Andrew. May 11, 2016.
   Retrieved December 10, 2016.
+* [.NET Standard Library][2]. Retrieved December 11, 2016.
 
 [1]: https://msdn.microsoft.com/en-us/library/gg145045(v=vs.110).aspx
 [2]: https://docs.microsoft.com/en-us/dotnet/articles/standard/library
