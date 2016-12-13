@@ -1,0 +1,29 @@
+﻿{
+  "title": "StevenVolckaert.Core.Tests",
+  "copyright": "Copyright (c) 2016 Steven Volckaert",
+  "description": "Unit test project for StevenVolckaert.Core.",
+  "language": "en-US",
+  "version": "0.1.0-*",
+  "authors": [ "Steven Volckaert" ],
+
+  "testRunner": "mstest",
+
+  "dependencies": {
+    "StevenVolckaert.Core": "0.1.0-*",
+    "dotnet-test-mstest": "1.1.2-preview",
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    },
+    "MSTest.TestFramework": "1.0.7-preview"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  }
+}
