@@ -1,4 +1,4 @@
-# Steven Volckaert's Enterprise Library
+# Steven Volckaert's Enterprise Library [![Build status](https://ci.appveyor.com/api/projects/status/oywm2xiccjbfmj6r?svg=true)](https://ci.appveyor.com/project/stevenvolckaert/enterprise-library)
 
 **Steven Volckaert's Enterprise Library** is a collection of .NET *class libraries* that contain reusable software
 components designed to assist software developers with writing less and semantically more meaningful code.
