@@ -17,9 +17,6 @@
         /// <remarks>See https://en.wikipedia.org/wiki/Unix_time for more information.</remarks>
         public static int ToUnixTime(this DateTime dateTime)
         {
-            if (dateTime == null)
-                return int.MinValue;
-
             return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
     }
