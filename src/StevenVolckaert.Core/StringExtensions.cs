@@ -13,7 +13,19 @@
     public static class StringExtensions
     {
         /// <summary>
-        /// Indicates whether a specified string is <c>null</c>, empty, or consists only of white-space characters.
+        ///     Indicates whether the specified string is <c>null</c> or empty.
+        /// </summary>
+        /// <param name="value">The string to test.</param>
+        /// <returns>
+        ///     <c>true</c> if the value parameter is <c>null</c> or an empty string (""); otherwise, false.
+        /// </returns>
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return string.IsNullOrEmpty(value);
+        }
+
+        /// <summary>
+        /// Indicates whether the specified string is <c>null</c>, empty, or consists only of white-space characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns>
