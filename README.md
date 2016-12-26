@@ -27,6 +27,18 @@ Enterprise library is available on NuGet.
 * The library is built with modularity and [separation of concerns][3] in mind.
 * Class libraries, namespaces and types are named in accordance with the [.NET Framework Design Guidelines][4].
 
+## Forking and compiling from source
+
+One of the frameworks the library targets is `.NET Framework 3.5`, which is not installed by default on Windows 8,
+Windows 8.1 or Windows 10. Instead, you need to install the framework manually.
+[Installing the .NET Framework 3.5 on Windows 8, Windows 8.1 and Windows 10][6] explains how to do this.
+
+Using this method didn't work for me on Windows 10, but I managed to install .NET Framework 3.5 using the `DISM.exe`
+tool. See [Can't install .NET 3.5 on Windows 10](http://superuser.com/q/946988/319367) on StackExchange for more
+information.
+
+Alternatively, you can remove the .NET Framework 3.5 build target: Simply remove it from the `project.json`.
+
 ## License
 
 Steven Volckaert's Enterprise Library is licensed under the [MIT license](LICENSE).
@@ -42,3 +54,4 @@ Steven Volckaert's Enterprise Library is licensed under the [MIT license](LICENS
 [3]: https://en.wikipedia.org/wiki/Separation_of_concerns
 [4]: https://msdn.microsoft.com/en-us/library/ms229042(v=vs.110).aspx
 [5]: http://andrewlock.net/understanding-net-core-netstandard-and-asp-net-core/
+[6]: https://msdn.microsoft.com/en-us/library/hh506443%28v=vs.110%29.aspx
