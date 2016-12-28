@@ -7,7 +7,7 @@
   "authors": [ "Steven Volckaert" ],
   "frameworks": {
     "net35": {},
-    "net45": {},
+    "net452": {},
     "netstandard1.5": {
       "dependencies": {
         "NETStandard.Library": "1.6.1"
