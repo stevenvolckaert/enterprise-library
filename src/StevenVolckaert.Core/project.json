@@ -3,7 +3,7 @@
   "copyright": "Copyright (c) 2016 Steven Volckaert",
   "description": "Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.",
   "language": "en-US",
-  "version": "0.1.0-*",
+  "version": "0.1.1-*",
   "authors": [ "Steven Volckaert" ],
   "frameworks": {
     "net35": {},
