@@ -17,7 +17,7 @@ Steven Volckaert's Enterprise Library comprises a collection of class libraries.
 
 ## NuGet
 
-Enterprise library is available on NuGet.
+Enterprise Library is available on NuGet.
 
 * [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/) (.NETFramework 3.5, .NETFramework 4.5.2,
   .NETStandard 1.5)
