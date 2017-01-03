@@ -57,13 +57,17 @@
         [TestMethod]
         public void FromCelsiusToFahrenheitTest()
         {
-            _temperatureTuples.ForEach(x => Assert.AreEqual(x.Item2, UnitConvert.FromCelsiusToFahrenheit(x.Item1)));
+            _temperatureTuples.ForEach(
+                x => Assert.AreEqual(x.Item2, UnitConvert.FromCelsiusToFahrenheit(x.Item1))
+            );
         }
 
         [TestMethod]
         public void FromFahrenheitToCelsiusTest()
         {
-            _temperatureTuples.ForEach(x => Assert.AreEqual(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2)));
+            _temperatureTuples.ForEach(
+                x => Assert.AreEqual(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2))
+            );
         }
 
         //[TestMethod]

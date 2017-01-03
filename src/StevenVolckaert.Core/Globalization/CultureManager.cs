@@ -7,19 +7,19 @@
     using Diagnostics;
 
     /// <summary>
-    /// Manages cultures of an application.
+    ///     Manages cultures of an application.
     /// </summary>
     public class CultureManager
     {
         private string _currentCultureName;
         /// <summary>
-        /// Gets or sets the name of the current culture in the format
-        /// "&lt;languagecode2&gt;-&lt;country/regioncode2&gt;".
+        ///     Gets or sets the name of the current culture in the format
+        ///     "&lt;languagecode2&gt;-&lt;country/regioncode2&gt;".
         /// </summary>
         /// <returns>
-        /// The current culture name in the format "&lt;languagecode2&gt;-&lt;country/regioncode2&gt;",
-        /// where "&lt;languagecode2&gt;" is a lowercase two-letter code derived from ISO 639-1
-        /// and "&lt;country/regioncode2&gt;" is an uppercase two-letter code derived from ISO 3166.
+        ///     The current culture name in the format "&lt;languagecode2&gt;-&lt;country/regioncode2&gt;",
+        ///     where "&lt;languagecode2&gt;" is a lowercase two-letter code derived from ISO 639-1
+        ///     and "&lt;country/regioncode2&gt;" is an uppercase two-letter code derived from ISO 3166.
         ///</returns>
         public string CurrentCultureName
         {
@@ -34,7 +34,7 @@
         }
 
         /// <summary>
-        /// Gets the manager's current culture.
+        ///     Gets the manager's current culture.
         /// </summary>
         public CultureInfo CurrentCulture
         {
@@ -43,7 +43,7 @@
 
         private readonly string _defaultCultureName;
         /// <summary>
-        /// Gets the name of the manager's default culture.
+        ///     Gets the name of the manager's default culture.
         /// </summary>
         public string DefaultCultureName
         {
@@ -52,7 +52,7 @@
 
         private readonly Dictionary<string, CultureInfo> _supportedCultures;
         /// <summary>
-        /// Gets a dictionary of cultures that are supported by this culture manager.
+        ///     Gets a dictionary of cultures that are supported by this culture manager.
         /// </summary>
         public Dictionary<string, CultureInfo> SupportedCultures
         {
@@ -60,12 +60,12 @@
         }
 
         /// <summary>
-        /// Occurs when the manager's culture has changed.
+        ///     Occurs when the manager's culture has changed.
         /// </summary>
         public event EventHandler<CurrentCultureChangedEventArgs> CurrentCultureChanged;
 
         /// <summary>
-        /// Raises the <see cref="CurrentCultureChanged"/> event.
+        ///     Raises the <see cref="CurrentCultureChanged"/> event.
         /// </summary>
         /// <param name="oldValue">The name of the current culture before the change.</param>
         /// <param name="newValue">The name of the current culture after the change.</param>
@@ -75,19 +75,22 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CultureManager"/> class.
+        ///     Initializes a new instance of the <see cref="CultureManager"/> class.
         /// </summary>
-        /// <param name="supportedCultureNames">An array that contains one or more culture names
-        /// that need to be supported by the manager. Invalid culture names are ignored.</param>
+        /// <param name="supportedCultureNames">
+        ///     An array that contains one or more culture names that need to be supported by the manager.
+        ///     Invalid culture names are ignored.
+        /// </param>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="supportedCultureNames"/> is <c>null</c>.
+        ///     <paramref name="supportedCultureNames"/> is <c>null</c>.
         /// </exception>
         /// <exception cref="ArgumentException">
-        /// <paramref name="supportedCultureNames"/> contains no elements, or contains no supported culture names.
+        ///     <paramref name="supportedCultureNames"/> contains no elements,
+        ///     or contains no supported culture names.
         /// </exception>
         /// <remarks>
-        /// The manager's default culture is set to the first item of
-        /// the <paramref name="supportedCultureNames"/> parameter.
+        ///     The manager's default culture is set to the first item of
+        ///     the <paramref name="supportedCultureNames"/> parameter.
         /// </remarks>
         public CultureManager(params string[] supportedCultureNames) :
             this(defaultCultureName: null, supportedCultureNames: supportedCultureNames)
@@ -95,20 +98,23 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CultureManager"/> class.
+        ///     Initializes a new instance of the <see cref="CultureManager"/> class.
         /// </summary>
         /// <param name="defaultCultureName">The name of the manager's default culture.</param>
-        /// <param name="supportedCultureNames">An array that contains one or more culture names
-        /// that need to be supported by the manager. Invalid culture names are ignored.</param>
+        /// <param name="supportedCultureNames">
+        ///     An array that contains one or more culture names that need to be supported by the manager.
+        ///     Invalid culture names are ignored.
+        /// </param>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="supportedCultureNames"/> is <c>null</c>.
+        ///     <paramref name="supportedCultureNames"/> is <c>null</c>.
         /// </exception>
         /// <exception cref="ArgumentException">
-        /// <paramref name="supportedCultureNames"/> contains no elements, or contains no supported culture names.
+        ///     <paramref name="supportedCultureNames"/> contains no elements,
+        ///     or contains no supported culture names.
         /// </exception>
         /// <remarks>
-        /// If the <paramref name="defaultCultureName"/> parameter is not supported, the manager's default culture
-        /// is set to the first item of the <paramref name="supportedCultureNames"/> parameter.
+        ///     If the <paramref name="defaultCultureName"/> parameter is not supported, the manager's default
+        ///     culture is set to the first item of the <paramref name="supportedCultureNames"/> parameter.
         /// </remarks>
         public CultureManager(string defaultCultureName, params string[] supportedCultureNames)
         {
@@ -131,7 +137,10 @@
             }
 
             if (_supportedCultures.Count() == 0)
-                throw new ArgumentException(Resources.ValueContainsNoSupportedElements, nameof(supportedCultureNames));
+                throw new ArgumentException(
+                    message: Resources.ValueContainsNoSupportedElements,
+                    paramName: nameof(supportedCultureNames)
+                );
 
             _defaultCultureName = IsSpecificCultureSupported(defaultCultureName)
                 ? defaultCultureName
@@ -142,9 +151,8 @@
         }
 
         /// <summary>
-        /// Returns an instance of the <see cref="System.Globalization.CultureInfo"/> class
-        /// based on the culture specified by name, or <c>null</c> if the culture is not
-        /// supported by the current operating system.
+        ///     Returns an instance of the <see cref="CultureInfo"/> class based on the culture specified by name,
+        ///     or <c>null</c> if the culture is not supported by the current operating system.
         /// </summary>
         /// <param name="cultureName">The name of a culture.</param>
         /// <exception cref="ArgumentNullException"><paramref name="cultureName"/> is <c>null</c>.</exception>
@@ -177,7 +185,7 @@
         }
 
         /// <summary>
-        /// Convert a given culture name to the name of it's associated neutral culture.
+        ///     Convert a given culture name to the name of it's associated neutral culture.
         /// </summary>
         /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
         /// <returns>The name of the neutral culture, or <c>null</c> if the culture is not supported.</returns>
@@ -198,8 +206,8 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether a given culture, or its associated neutral culture,
-        /// is supported by this culture manager.
+        ///     Returns a value that indicates whether a given culture, or its associated neutral culture,
+        ///     is supported by this culture manager.
         /// </summary>
         /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
         public bool IsCultureSupported(string cultureName)
@@ -216,7 +224,8 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether a given specific culture is supported by this culture manager.
+        ///     Returns a value that indicates whether a given specific culture is supported
+        ///     by this culture manager.
         /// </summary>
         /// <param name="cultureName">The name of the culture.</param>
         /// <returns><c>true</c> if the culture is supported, <c>false</c> otherwise.</returns>
@@ -226,8 +235,8 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether a given culture, or it's associated neutral culture,
-        /// is currently selected.
+        ///     Returns a value that indicates whether a given culture, or it's associated neutral culture,
+        ///     is currently selected.
         /// </summary>
         /// <param name="cultureName">The name of the culture.</param>
         public bool IsCultureSelected(string cultureName)
@@ -236,16 +245,17 @@
         }
 
         /// <summary>
-        /// Sets the application's current culture.
-        /// If the given culture is not supported, the manager's default culture is selected.
-        /// <para>
-        /// If a given specific culture is not supported, its associated neutral culture is selected (if it exists).
-        /// </para>
+        ///     Sets the application's current culture.
+        ///     If the given culture is not supported, the manager's default culture is selected.
+        ///     <para>
+        ///     If a given specific culture is not supported, its associated neutral culture is selected
+        ///     (if it exists).
+        ///     </para>
         /// </summary>
         /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>
         /// <exception cref="ArgumentException">
-        /// <paramref name="cultureName"/> is <c>null</c>, empty, or white space.
+        ///     <paramref name="cultureName"/> is <c>null</c>, empty, or white space.
         /// </exception>
         public string SetCulture(string cultureName)
         {
@@ -259,9 +269,9 @@
         }
 
         /// <summary>
-        /// Sets the application's current culture, given an array of culture names.
-        /// The manager selects the first culture that is supported, or the default culture
-        /// if none of the specified cultures are supported.
+        ///     Sets the application's current culture, given an array of culture names.
+        ///     The manager selects the first culture that is supported, or the default culture
+        ///     if none of the specified cultures are supported.
         /// </summary>
         /// <param name="cultureNames">An array that contains zero or more culture names.</param>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>
@@ -276,7 +286,7 @@
         }
 
         /// <summary>
-        /// Sets the application's current culture to the manager's default culture.
+        ///     Sets the application's current culture to the manager's default culture.
         /// </summary>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>
         public string SetDefaultCulture()
@@ -285,8 +295,8 @@
         }
 
         /// <summary>
-        /// Sets the application's current culture to a specific culture.
-        /// If the given culture is not supported, the manager's default culture is selected.
+        ///     Sets the application's current culture to a specific culture.
+        ///     If the given culture is not supported, the manager's default culture is selected.
         /// </summary>
         /// <param name="cultureName">The name of the culture.</param>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>

@@ -5,7 +5,7 @@
     using System.Globalization;
 
     /// <summary>
-    /// Provides extension methods for <see cref="CultureInfo"/> instances.
+    ///     Provides extension methods for <see cref="CultureInfo"/> instances.
     /// </summary>
     public static class CultureInfoExtensions
     {
@@ -44,16 +44,21 @@
             };
 
         /// <summary>
-        /// Returns the MARC 21 three-letter code for the language associated with
-        /// the current <see cref="CultureInfo"/> instance.
+        ///     Returns the MARC 21 three-letter code for the language associated with
+        ///     the current <see cref="CultureInfo"/> instance.
         /// </summary>
-        /// <param name="cultureInfo">The <see cref="CultureInfo"/> instance this extension method affects.</param>
+        /// <param name="cultureInfo">
+        ///     The <see cref="CultureInfo"/> instance this extension method affects.
+        /// </param>
         /// <exception cref="ArgumentNullException"><paramref name="cultureInfo"/> is <c>null</c>.</exception>
-        /// <exception cref="NotSupportedException">Translating <paramref name="cultureInfo"/> to
-        /// the associated MARC 21 three-letter language code is not supported.</exception>
+        /// <exception cref="NotSupportedException">
+        ///     Translating <paramref name="cultureInfo"/> to the associated MARC 21 three-letter language code
+        ///     is not supported.
+        /// </exception>
         /// <remarks>
-        /// See http://en.wikipedia.org/wiki/MARC_standards#MARC_21 for more information.
-        /// See http://www.loc.gov/marc/languages/language_code.html for the official MARC 21 Code List for Languages.
+        ///     See http://en.wikipedia.org/wiki/MARC_standards#MARC_21 for more information.
+        ///     See http://www.loc.gov/marc/languages/language_code.html for the official
+        ///     MARC 21 Code List for Languages.
         /// </remarks>
         public static string Marc21LanguageCode(this CultureInfo cultureInfo)
         {

@@ -9,16 +9,18 @@ namespace StevenVolckaert
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Provides extension methods for <see cref="Task"/> and <see cref="Task{TResult}"/> instances.
+    ///     Provides extension methods for <see cref="Task"/> and <see cref="Task{TResult}"/> instances.
     /// </summary>
     public static class TaskExtensions
     {
         /// <summary>
-        /// Sorts a sequence of tasks in the order that they will complete.
+        ///     Sorts a sequence of tasks in the order that they will complete.
         /// </summary>
         /// <typeparam name="TResult">The type returned by the tasks of <paramref name="tasks"/>.</typeparam>
         /// <param name="tasks">The sequence of tasks to order.</param>
-        /// <returns>A sequence of tasks, sorted in the order that they will complete.</returns>
+        /// <returns>
+        ///     A sequence of tasks, sorted in the order that they will complete.
+        /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="tasks"/> is <c>null</c>.</exception>
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InCompletion", Justification = "Term is cased correctly.")]
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Rule does not apply to the task-based asynchronous programming pattern.")]

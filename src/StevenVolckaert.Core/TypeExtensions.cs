@@ -6,7 +6,7 @@
     using System.Reflection;
 
     /// <summary>
-    /// Provides extension methods for <see cref="Type"/> instances.
+    ///     Provides extension methods for <see cref="Type"/> instances.
     /// </summary>
     public static class TypeExtensions
     {
@@ -18,12 +18,13 @@
 #endif
 
         /// <summary>
-        /// Returns a value that indicates whether the type is a <see cref="bool"/> or nullable <see cref="bool"/>.
+        ///     Returns a value that indicates whether the type is a <see cref="bool"/> or
+        ///     nullable <see cref="bool"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <returns>
-        /// <c>true</c> if <paramref name="type"/> is a <see cref="bool"/> or nullable <see cref="bool"/>;
-        /// otherwise, <c>false</c>.
+        ///     <c>true</c> if <paramref name="type"/> is a <see cref="bool"/> or
+        ///     nullable <see cref="bool"/>; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
         public static bool IsBoolean(this Type type)
@@ -32,13 +33,13 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether the type is a <see cref="decimal"/> or
-        /// nullable <see cref="decimal"/>.
+        ///     Returns a value that indicates whether the type is a <see cref="decimal"/> or
+        ///     nullable <see cref="decimal"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <returns>
-        /// <c>true</c> if <paramref name="type"/> is a <see cref="decimal"/> or nullable <see cref="decimal"/>;
-        /// otherwise, <c>false</c>.
+        ///     <c>true</c> if <paramref name="type"/> is a <see cref="decimal"/> or
+        ///     nullable <see cref="decimal"/>; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
         public static bool IsDecimal(this Type type)
@@ -47,12 +48,13 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether the type is a <see cref="int"/> or nullable <see cref="int"/>.
+        ///     Returns a value that indicates whether the type is a <see cref="int"/> or
+        ///     nullable <see cref="int"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <returns>
-        /// <c>true</c> if <paramref name="type"/> is a <see cref="int"/> or nullable <see cref="bool"/>;
-        /// otherwise, <c>false</c>.
+        ///     <c>true</c> if <paramref name="type"/> is a <see cref="int"/> or nullable <see cref="int"/>;
+        ///     otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
         public static bool IsInt32(this Type type)
@@ -70,7 +72,7 @@
         }
 
         /// <summary>
-        /// Returns a value that indicates whether the type is a nullable type.
+        ///     Returns a value that indicates whether the type is a nullable type.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <returns><c>true</c> if <paramref name="type"/> is nullable; otherwise, <c>false</c>.</returns>
@@ -84,8 +86,8 @@
         }
 
         /// <summary>
-        /// Returns a dictionary containing the name and metadata of all public properties of the specified type,
-        /// recursively.
+        ///     Returns a dictionary containing the name and metadata of all public properties of
+        ///     the specified type, recursively.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <returns>A <see cref="Dictionary{String, PropertyInfo}"/>
@@ -97,13 +99,15 @@
         }
 
         /// <summary>
-        /// Returns a dictionary containing the name and metadata of all public properties of the specified type,
-        /// recursively.
+        ///     Returns a dictionary containing the name and metadata of all public properties of
+        ///     the specified type, recursively.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <param name="parent">The name of the parent that contains <paramref name="type"/>.</param>
-        /// <returns>A <see cref="Dictionary{String, PropertyInfo}"/>
-        /// containing the name and metadata of all public properties of the specified type and its children.</returns>
+        /// <returns>
+        ///     A <see cref="Dictionary{String, PropertyInfo}"/> containing the name and metadata of all
+        ///     public properties of the specified type and its children.
+        /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
         public static Dictionary<string, PropertyInfo> PropertyMetadata(this Type type, string parent)
         {
@@ -138,17 +142,20 @@
         }
 
         /// <summary>
-        /// Returns the metadata of all public properties of the specified type that have a specified attribute.
+        ///     Returns the metadata of all public properties of the specified type that have
+        ///     a specified attribute.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
-        /// <returns>A <see cref="IEnumerable{PropertyInfo}"/> containing
-        /// the metadata of all public properties of the type that have the specified attribute.</returns>
+        /// <returns>
+        ///     A <see cref="IEnumerable{PropertyInfo}"/> containing
+        ///     the metadata of all public properties of the type that have the specified attribute.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="type"/> or <paramref name="attributeType"/> is <c>null</c>.
+        ///     <paramref name="type"/> or <paramref name="attributeType"/> is <c>null</c>.
         /// </exception>
         /// <exception cref="ArgumentException">
-        /// <paramref name="attributeType"/> doesn't derive from <see cref="Attribute"/>.
+        ///     <paramref name="attributeType"/> doesn't derive from <see cref="Attribute"/>.
         /// </exception>
         public static IEnumerable<PropertyInfo> PropertyMetadata(this Type type, Type attributeType)
         {
@@ -163,17 +170,19 @@
         }
 
         /// <summary>
-        /// Returns the names of all public properties of the specified type that have a specified attribute.
+        ///     Returns the names of all public properties of the specified type that have a specified attribute.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> instance this extension method affects.</param>
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
-        /// <returns>A <see cref="IEnumerable{String}"/> containing
-        /// The names of all public properties of the type that have the specified attribute.</returns>
+        /// <returns>
+        ///     A <see cref="IEnumerable{String}"/> containing
+        ///     the names of all public properties of the type that have the specified attribute.
+        /// </returns>
         /// <exception cref="ArgumentNullException">
-        /// <paramref name="type"/> or <paramref name="attributeType"/> is <c>null</c>.
+        ///     <paramref name="type"/> or <paramref name="attributeType"/> is <c>null</c>.
         /// </exception>
         /// <exception cref="ArgumentException">
-        /// <paramref name="attributeType"/> doesn't derive from <see cref="Attribute"/>.
+        ///     <paramref name="attributeType"/> doesn't derive from <see cref="Attribute"/>.
         /// </exception>
         public static IEnumerable<string> PropertyNames(this Type type, Type attributeType)
         {

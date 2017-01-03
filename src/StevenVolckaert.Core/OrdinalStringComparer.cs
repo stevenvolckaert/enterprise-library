@@ -5,18 +5,19 @@
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// Defines a method for comparing strings according to their ordinal value.
-    /// <para>This class cannot be inherited.</para>
+    ///     Defines a method for comparing strings according to their ordinal value.
+    ///     <para>This class cannot be inherited.</para>
     /// </summary>
     /// <remarks>
-    /// See https://code.msdn.microsoft.com/windowsdesktop/Ordinal-String-Sorting-1cbac582 for more information.
+    ///     See https://code.msdn.microsoft.com/windowsdesktop/Ordinal-String-Sorting-1cbac582 for more
+    ///     information.
     /// </remarks>
     internal sealed class OrdinalStringComparer : IComparer<string>
     {
         private bool _ignoreCase;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrdinalStringComparer"/> class.
+        ///     Initializes a new instance of the <see cref="OrdinalStringComparer"/> class.
         /// </summary>
         /// <param name="ignoreCase">A value that indicates whether to ignore case during comparison.</param>
         public OrdinalStringComparer(bool ignoreCase)
@@ -25,15 +26,19 @@
         }
 
         /// <summary>
-        /// Compares two string values and returns a value that indicates whether one is less than, equal to,
-        /// or greater than the other.
+        ///     Compares two string values and returns a value that indicates whether one is less than, equal to,
+        ///     or greater than the other.
         /// </summary>
         /// <param name="x">The first string value to compare.</param>
         /// <param name="y">The second string value to compare.</param>
-        /// <returns>A signed integer that indicates the relative values of x and y, as in the Compare method
-        /// in the <see cref="IComparer{T}"/> interface.</returns>
-        /// <remarks>Implementing this method with string.Compare(String, String, StringComparison)
-        /// does not produce the desired results.</remarks>
+        /// <returns>
+        ///     A signed integer that indicates the relative values of x and y, as in the Compare method
+        ///     in the <see cref="IComparer{T}"/> interface.
+        /// </returns>
+        /// <remarks>
+        ///     Implementing this method with string.Compare(String, String, StringComparison)
+        ///     does not produce the desired results.
+        /// </remarks>
         public int Compare(string x, string y)
         {
             // Check for null values first: A null reference is considered to be less than

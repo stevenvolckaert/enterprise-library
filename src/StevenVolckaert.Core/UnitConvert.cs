@@ -3,14 +3,14 @@
     using System;
 
     /// <summary>
-    /// Converts a unit of measurement to an equivalent unit of measurement.
+    ///     Converts a unit of measurement to an equivalent unit of measurement.
     /// </summary>
     public static class UnitConvert
     {
         private const double FeetPerMeter = 3.280839895;
 
         /// <summary>
-        /// Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
+        ///     Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in degrees Fahrenheit (°F).</returns>
@@ -20,7 +20,7 @@
         }
 
         /// <summary>
-        /// Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
+        ///     Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in degrees Fahrenheit (°F).</returns>
@@ -31,7 +31,7 @@
         }
 
         /// <summary>
-        /// Converts a value in degrees Fahrenheit (°F) to its equivalent in degrees Celsius (°C).
+        ///     Converts a value in degrees Fahrenheit (°F) to its equivalent in degrees Celsius (°C).
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in degrees Celsius (°C)</returns>
@@ -41,7 +41,7 @@
         }
 
         /// <summary>
-        /// Converts a value in degrees Fahrenheit (°F) to its equivalent in degrees Celsius (°C).
+        ///     Converts a value in degrees Fahrenheit (°F) to its equivalent in degrees Celsius (°C).
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in degrees Celsius (°C)</returns>
@@ -52,7 +52,7 @@
         }
 
         /// <summary>
-        /// Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meter.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in meter.</returns>
@@ -62,7 +62,7 @@
         }
 
         /// <summary>
-        /// Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meter.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in meter.</returns>
@@ -72,7 +72,7 @@
         }
 
         /// <summary>
-        /// Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meter to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>
@@ -82,7 +82,7 @@
         }
 
         /// <summary>
-        /// Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meter to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>

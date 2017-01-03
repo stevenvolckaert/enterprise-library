@@ -25,12 +25,13 @@
         }
 
         /// <summary>
-        ///     Indicates whether the specified string is <c>null</c>, empty, or consists only of white-space characters.
+        ///     Indicates whether the specified string is <c>null</c>, empty, or consists only of white-space
+        ///     characters.
         /// </summary>
         /// <param name="value">The string to test.</param>
         /// <returns>
-        ///     <c>true</c> if the <paramref name="value"/> parameter is <c>null</c> or <see cref="string.Empty"/>,
-        ///     or if <paramref name="value"/> consists exclusively of white-space characters.
+        ///     <c>true</c> if the <paramref name="value"/> parameter is <c>null</c> or
+        ///     <see cref="string.Empty"/>, or consists exclusively of white-space characters.
         /// </returns>
         public static bool IsNullOrWhiteSpace(this string value)
         {
@@ -118,7 +119,7 @@
             }
             catch (OverflowException)
             {
-                // The conversion from string to decimal overflowed. The string is too long to represent a decimal.
+                // The conversion to decimal overflowed. The string is too long to represent a decimal.
                 return false;
             }
         }
@@ -128,7 +129,8 @@
         /// </summary>
         /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
         /// <returns>
-        ///     <c>true</c> if <paramref name="value"/> represents a 32-bit signed integer; otherwise, <c>false</c>.
+        ///     <c>true</c> if <paramref name="value"/> represents a 32-bit signed integer;
+        ///     otherwise, <c>false</c>.
         /// </returns>
         public static bool IsInt32(this string value)
         {
@@ -163,7 +165,9 @@
         /// </summary>
         /// <typeparam name="T">The type of the elements in the returned collection.</typeparam>
         /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
-        /// <param name="separator">An array of Unicode characters that delimit the substrings in the string.</param>
+        /// <param name="separator">
+        ///     An array of Unicode characters that delimit the substrings in the string.
+        /// </param>
         /// <returns>
         ///     The collection.
         /// </returns>

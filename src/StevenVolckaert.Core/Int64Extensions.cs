@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Specifies a prefix that is used in combination with a unit of information (e.g. byte).
+    ///     Specifies a prefix that is used in combination with a unit of information (e.g. byte).
     /// </summary>
     public enum UnitOfInformationPrefix
     {
@@ -26,19 +26,24 @@
     }
 
     /// <summary>
-    /// Provides extension methods for <see cref="long"/> and <see cref="ulong"/> values.
+    ///     Provides extension methods for <see cref="long"/> and <see cref="ulong"/> values.
     /// </summary>
     public static class Int64Extensions
     {
-        private static readonly string[] _binaryUnitSymbols = new string[] { "B", "KiB", "MiB", "GiB", "TiB", "PiB" };
-        private static readonly string[] _decimalUnitSymbols = new string[] { "B", "kB", "MB", "GB", "TB", "PB" };
+        private static readonly string[] _binaryUnitSymbols =
+            new string[] { "B", "KiB", "MiB", "GiB", "TiB", "PiB" };
+
+        private static readonly string[] _decimalUnitSymbols =
+            new string[] { "B", "kB", "MB", "GB", "TB", "PB" };
 
         /// <summary>
-        /// Returns a string that represents a number of bytes in a human-readable format.
+        ///     Returns a string that represents a number of bytes in a human-readable format.
         /// </summary>
         /// <param name="value">The <see cref="ulong"/> value, in bytes.</param>
         /// <param name="prefix">The prefix to be used in the string representation.</param>
-        /// <exception cref="ArgumentOutOfRangeException"><paramref name="prefix"/> has an illegal value.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     <paramref name="prefix"/> has an illegal value.
+        /// </exception>
         public static string BytesToString(this ulong value, UnitOfInformationPrefix prefix)
         {
             var divider = (ulong)prefix;
@@ -78,11 +83,13 @@
                 divideValue = divideValue * divider;
             }
 
-            return string.Format(CultureInfo.InvariantCulture, "{0:0.#} {1}", value / divideValue, unitSymbols.Last());
+            return string.Format(
+                CultureInfo.InvariantCulture, "{0:0.#} {1}", value / divideValue, unitSymbols.Last()
+            );
         }
 
         /// <summary>
-        /// Returns a string that represents a number of kibiytes (KiB) in a human-readable format.
+        ///     Returns a string that represents a number of kibiytes (KiB) in a human-readable format.
         /// </summary>
         /// <param name="value">The <see cref="ulong"/> value, in kibibytes (KiB).</param>
         public static string KibibytesToString(this ulong value)
@@ -91,7 +98,7 @@
         }
 
         /// <summary>
-        /// Returns a string that represents a number of kilobytes (kB) in a human-readable format.
+        ///     Returns a string that represents a number of kilobytes (kB) in a human-readable format.
         /// </summary>
         /// <param name="value">The <see cref="ulong"/> value, in kilobytes (kB).</param>
         public static string KilobytesToString(this ulong value)
@@ -100,7 +107,7 @@
         }
 
         /// <summary>
-        /// Returns a string that represents a number of mebibytes (MiB) in a human-readable format.
+        ///     Returns a string that represents a number of mebibytes (MiB) in a human-readable format.
         /// </summary>
         /// <param name="value">The <see cref="ulong"/> value, in mebibytes (MiB).</param>
         public static string MebibytesToString(this ulong value)
@@ -109,7 +116,7 @@
         }
 
         /// <summary>
-        /// Returns a string that represents a number of megabytes (MB) in a human-readable format.
+        ///     Returns a string that represents a number of megabytes (MB) in a human-readable format.
         /// </summary>
         /// <param name="value">The <see cref="ulong"/> value, in megabytes (MB).</param>
         public static string MegabytesToString(this ulong value)

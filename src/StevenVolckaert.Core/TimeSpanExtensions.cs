@@ -4,13 +4,13 @@
     using System.Text;
 
     /// <summary>
-    /// Provides extension methods for <see cref="TimeSpan"/> instances.
+    ///     Provides extension methods for <see cref="TimeSpan"/> instances.
     /// </summary>
     public static class TimeSpanExtensions
     {
         /// <summary>
-        /// Returns a formatted string that represents the current <see cref="TimeSpan"/> in the language
-        /// of the application's current culture.
+        ///     Returns a formatted string that represents the current <see cref="TimeSpan"/> in the language
+        ///     of the application's current culture.
         /// </summary>
         /// <param name="timeSpan">The <see cref="TimeSpan"/> instance that this extension method affects.</param>
         public static string ToFormattedString(this TimeSpan timeSpan)
@@ -29,7 +29,10 @@
             if (timeSpan.Hours < 24 && timeSpan.Days == 0)
             {
                 stringBuilder.Append(
-                    timeSpan.Hours.ToFormattedString(singularSuffix: Resources.Hour, pluralSuffix: Resources.Hours)
+                    timeSpan.Hours.ToFormattedString(
+                        singularSuffix: Resources.Hour,
+                        pluralSuffix: Resources.Hours
+                    )
                 );
 
                 if (timeSpan.Minutes > 0)
@@ -54,8 +57,12 @@
             {
                 stringBuilder.Append(", ");
                 stringBuilder.Append(
-                    timeSpan.Hours.ToFormattedString(singularSuffix: Resources.Hour, pluralSuffix: Resources.Hours)
+                    timeSpan.Hours.ToFormattedString(
+                        singularSuffix: Resources.Hour,
+                        pluralSuffix: Resources.Hours
+                    )
                 );
+
                 return stringBuilder.ToString();
             }
 
@@ -67,6 +74,7 @@
                         singularSuffix: Resources.Minute, pluralSuffix: Resources.Minutes
                     )
                 );
+
                 return stringBuilder.ToString();
             }
 

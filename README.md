@@ -19,8 +19,8 @@ Steven Volckaert's Enterprise Library comprises a collection of class libraries.
 
 Enterprise Library is available on NuGet.
 
-* [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/) (.NETFramework 3.5, .NETFramework 4.5.2,
-  .NETStandard 1.5)
+* [StevenVolckaert.Core](https://www.nuget.org/packages/StevenVolckaert.Core/) (.NETFramework 3.5,
+  .NETFramework 4.5.2, .NETStandard 1.5)
 
 ## Design
 
@@ -29,13 +29,13 @@ Enterprise Library is available on NuGet.
 
 ## Forking and compiling from source
 
-One of the frameworks the library targets is `.NET Framework 3.5`, which is not installed by default on Windows 8,
-Windows 8.1 or Windows 10. Instead, you need to install the framework manually.
+One of the frameworks the library targets is `.NET Framework 3.5`, which is not installed by default on
+Windows 8, Windows 8.1 or Windows 10. Instead, you need to install the framework manually.
 [Installing the .NET Framework 3.5 on Windows 8, Windows 8.1 and Windows 10][6] explains how to do this.
 
-Using this method didn't work for me on Windows 10, but I managed to install .NET Framework 3.5 using the `DISM.exe`
-tool. See [Can't install .NET 3.5 on Windows 10](http://superuser.com/q/946988/319367) on StackExchange for more
-information.
+Using this method didn't work for me on Windows 10, but I managed to install .NET Framework 3.5 using the
+`DISM.exe` tool. See [Can't install .NET 3.5 on Windows 10](http://superuser.com/q/946988/319367) on
+StackExchange for more information.
 
 Alternatively, you can remove the .NET Framework 3.5 build target: Simply remove it from the `project.json`.
 

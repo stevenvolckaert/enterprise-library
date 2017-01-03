@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// Provides data for <see cref="CultureManager.CurrentCultureChanged"/> subscribers.
+    ///     Provides data for <see cref="CultureManager.CurrentCultureChanged"/> subscribers.
     /// </summary>
     public class CurrentCultureChangedEventArgs : EventArgs
     {
@@ -13,12 +13,12 @@
         public string NewValue { get; private set; }
 
         /// <summary>
-        /// Gets the name of the current culture before the change.
+        ///     Gets the name of the current culture before the change.
         /// </summary>
         public string OldValue { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentCultureChangedEventArgs"/> class.
+        ///     Initializes a new instance of the <see cref="CurrentCultureChangedEventArgs"/> class.
         /// </summary>
         /// <param name="oldValue">The name of the current culture before the change.</param>
         /// <param name="newValue">The name of the current culture after the change.</param>
