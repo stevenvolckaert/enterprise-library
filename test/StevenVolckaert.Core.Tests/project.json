@@ -3,13 +3,13 @@
   "copyright": "Copyright (c) 2016 Steven Volckaert",
   "description": "Unit test project for StevenVolckaert.Core.",
   "language": "en-US",
-  "version": "0.1.0-*",
+  "version": "0.1.1-*",
   "authors": [ "Steven Volckaert" ],
 
   "testRunner": "mstest",
 
   "dependencies": {
-    "StevenVolckaert.Core": "0.1.0-*",
+    "StevenVolckaert.Core": "0.1.1",
     "dotnet-test-mstest": "1.1.2-preview",
     "Microsoft.NETCore.App": {
       "version": "1.0.1",
