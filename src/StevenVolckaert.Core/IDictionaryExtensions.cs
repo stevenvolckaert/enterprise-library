@@ -34,7 +34,8 @@
 #endif
 
         /// <summary>
-        ///     Gets the value associated with the specified key, or the type's default value if the key doesn't exist.
+        ///     Gets the value associated with the specified key, or the type's default value if the key
+        ///     doesn't exist.
         /// </summary>
         /// <typeparam name="TKey">The type of keys in the dictionary.</typeparam>
         /// <typeparam name="TValue">The type of values in the dictionary.</typeparam>

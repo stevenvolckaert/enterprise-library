@@ -10,7 +10,7 @@
     public enum UnitOfInformationPrefix
     {
         /// <summary>
-        /// No prefix, indicating a power of 1.
+        ///     No prefix, indicating a power of 1.
         /// </summary>
         None = 0,
 

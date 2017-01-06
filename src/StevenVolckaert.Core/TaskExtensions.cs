@@ -22,7 +22,7 @@ namespace StevenVolckaert
         ///     A sequence of tasks, sorted in the order that they will complete.
         /// </returns>
         /// <exception cref="ArgumentNullException"><paramref name="tasks"/> is <c>null</c>.</exception>
-        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InCompletion", Justification = "Term is cased correctly.")]
+        [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",MessageId = "InCompletion", Justification = "Term is cased correctly.")]
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Rule does not apply to the task-based asynchronous programming pattern.")]
         public static IEnumerable<Task<TResult>> InCompletionOrder<TResult>(this IEnumerable<Task<TResult>> tasks)
         {

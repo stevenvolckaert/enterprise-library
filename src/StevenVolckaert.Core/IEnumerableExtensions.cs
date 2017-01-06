@@ -178,7 +178,9 @@
         /// <exception cref="ArgumentNullException">
         ///     <paramref name="source"/> is <c>null</c>.
         /// </exception>
-        public static IOrderedEnumerable<TSource> OrderByOrdinalDescending<TSource>(this IEnumerable<TSource> source)
+        public static IOrderedEnumerable<TSource> OrderByOrdinalDescending<TSource>(
+            this IEnumerable<TSource> source
+        )
         {
             return source.OrderByDescending(x => x.ToString(), new OrdinalStringComparer(ignoreCase: false));
         }
@@ -288,7 +290,9 @@
         /// <exception cref="ArgumentNullException">
         ///     <paramref name="source"/> is <c>null</c>.
         /// </exception>
-        public static ObservableCollection<TSource> ToObservableCollection<TSource>(this IEnumerable<TSource> source)
+        public static ObservableCollection<TSource> ToObservableCollection<TSource>(
+            this IEnumerable<TSource> source
+        )
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
