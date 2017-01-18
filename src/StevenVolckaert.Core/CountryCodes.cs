@@ -1,6 +1,8 @@
 ﻿namespace StevenVolckaert
 {
+    using System;
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
 #if !NET35
     using System.Collections.ObjectModel;
 #endif
@@ -190,5 +192,28 @@
         //Republic of Code used for North Yemen before 1990 YT Mayotte	1993	.yt ISO 3166-2:YT ZA  South Africa
         //1974	.za ISO 3166-2:ZA Code taken from name in Dutch: Zuid-Afrika ZM  Zambia	1974	.zm ISO 3166-2:ZM ZW
         //Zimbabwe
+
+        private static readonly Regex _beneluxUnionMemberStateCountryCodeRegex =
+            new Regex(RegexValidationPatterns.BeneluxUnionMemberStateCountryCode, RegexOptions.IgnoreCase);
+
+        /// <summary>
+        ///     Returns a value that indicates whether the specified ISO 3166-1 alpha-2 country code represents
+        ///     a member state of the Benelux Union.
+        /// </summary>
+        /// <param name="countryCode">The ISO 3166-1 alpha-2 country code representing the country.</param> 
+        /// <returns>
+        ///     <c>true</c> if <paramref name="countryCode"/> represents a Benelux Union member state;
+        ///     otherwise, <c>false</c>.
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        ///     <paramref name="countryCode"/> is <c>null</c>, empty, or white space.
+        /// </exception>
+        public static bool IsBeneluxUnionMemberState(string countryCode)
+        {
+            if (countryCode.IsNullOrWhiteSpace())
+                throw new ArgumentException(Resources.ValueNullEmptyOrWhiteSpace, nameof(countryCode));
+
+            return _beneluxUnionMemberStateCountryCodeRegex.IsMatch(countryCode);
+        }
     }
 }
