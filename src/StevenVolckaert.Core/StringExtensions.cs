@@ -125,6 +125,32 @@
         }
 
         /// <summary>
+        ///     Returns a value that indicates whether the string represents a <see cref="Guid"/> value. 
+        /// </summary>
+        /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
+        /// <returns>
+        ///     <c>true</c> if <paramref name="value"/> represents a <see cref="Guid"/> value;
+        ///     otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsGuid(this string value)
+        {
+#if NET35
+            try
+            {
+                var guid = new Guid(value);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+#else
+            Guid guid;
+            return Guid.TryParse(value, out guid);
+#endif
+        }
+
+        /// <summary>
         ///     Returns a value that indicates whether the string represents a 32-bit signed integer.
         /// </summary>
         /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
