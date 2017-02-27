@@ -1,5 +1,6 @@
 ﻿namespace StevenVolckaert
 {
+    using System;
     using System.Globalization;
 
     /// <summary>
@@ -23,6 +24,35 @@
         public static bool IsOdd(this int value)
         {
             return !value.IsEven();
+        }
+
+        /// <summary>
+        ///     Returns a string that represents a number of bytes in a human-readable format,
+        ///     using the <see cref="UnitOfInformationPrefix.Binary"/> prefix.
+        /// </summary>
+        /// <param name="value">The <see cref="int"/> value, in bytes.</param>
+        /// <returns>
+        ///     A human-readable string representation of <paramref name="value"/>, using powers of 1024.
+        /// </returns>
+        public static string BytesToString(this int value)
+        {
+            return ((ulong)value).BytesToString();
+        }
+
+        /// <summary>
+        ///     Returns a string that represent the <see cref="int"/> value in a human-readable format. 
+        /// </summary>
+        /// <param name="value">The <see cref="int"/> value, in bytes.</param>
+        /// <param name="prefix">The prefix to be used in the string representation.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     <paramref name="prefix"/> has an illegal value.
+        /// </exception>
+        /// <returns>
+        ///     A human-readable string representation of <paramref name="value"/>.
+        /// </returns>
+        public static string BytesToString(this int value, UnitOfInformationPrefix prefix)
+        {
+            return ((ulong)value).BytesToString(prefix);
         }
 
         /// <summary>
