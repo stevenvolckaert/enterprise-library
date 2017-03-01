@@ -1,11 +1,54 @@
 ﻿namespace StevenVolckaert.Tests
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class StringExtensionsTests
     {
+        [TestMethod]
+        public void IsGuidTest()
+        {
+            var validGuidStrings = new List<string>
+            {
+                // Lower case, no dashes, no braces.
+                "dfdc04eb167941cd8e23ef66d6cc756e",
+                // Upper case, no dashes, no braces.
+                "DFDC04EB167941CD8E23EF66D6CC756E",
+                // lower case, with dashes, no braces.
+                "dfdc04eb-1679-41cd-8e23-ef66d6cc756e",
+                // Upper case, with dashes, no braces.
+                "DFDC04EB-1679-41CD-8E23-EF66D6CC756E",
+                // Lower case, with dashes, with braces.
+                "{dfdc04eb-1679-41cd-8e23-ef66d6cc756e}",
+                // Upper case, with dashes, with braces.
+                "{DFDC04EB-1679-41CD-8E23-EF66D6CC756E}",
+            };
+
+            validGuidStrings.ForEach(
+                x => Assert.IsTrue(x.IsGuid(), $"Expected string value '{x}' to be a valid GUID.")
+            );
+
+            var invalidGuidStrings = new List<string>
+            {
+                // Contains invalid character ('g').
+                "gfdc04eb167941cd8e23ef66d6cc756e",
+                // Not enough characters.
+                "FDC04EB167941CD8E23EF66D6CC756E",
+                // Not enough characters.
+                "{dfdc04eb167941cd8e23ef66d6cc756}",
+                // Dash in the wrong place.
+                "DFDC04EB-16794-1CD-8E23EF66D6CC756E",
+                // A random string.
+                "Hello world!",
+            };
+
+            invalidGuidStrings.ForEach(
+                x => Assert.IsFalse(x.IsGuid(), $"Expected string value '{x}' to be an invalid GUID.")
+            );
+        }
+
         public enum MockedEnumeration
         {
             Foo,
