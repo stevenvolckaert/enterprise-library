@@ -6,9 +6,9 @@
     [TestClass]
     public class CultureManagerTests
     {
-        /* TODO Implement the unit tests. For instance: Calling any of the SetCulture methods should return the
-         * name of the culture after execution, which must equal the CurrentCultureName property of the culture
-         * manager (after execution). Steven Volckaert. December 13, 2016.
+        /* TODO Implement the unit tests. For instance: Calling any of the SetCulture methods should return
+         * the name of the culture after execution, which must equal the CurrentCultureName property of the
+         * culture manager (after execution). Steven Volckaert. December 13, 2016.
          */
 
         //[TestMethod]

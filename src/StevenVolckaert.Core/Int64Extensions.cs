@@ -5,27 +5,6 @@
     using System.Linq;
 
     /// <summary>
-    ///     Specifies a prefix that is used in combination with a unit of information (e.g. byte).
-    /// </summary>
-    public enum UnitOfInformationPrefix
-    {
-        /// <summary>
-        ///     No prefix, indicating a power of 1.
-        /// </summary>
-        None = 0,
-
-        /// <summary>
-        /// A decimal prefix, indicating a power of 1000.
-        /// </summary>
-        Decimal = 1000,
-
-        /// <summary>
-        /// A binary prefix, indicating a power of 1024.
-        /// </summary>
-        Binary = 1024
-    }
-
-    /// <summary>
     ///     Provides extension methods for <see cref="long"/> and <see cref="ulong"/> values.
     /// </summary>
     public static class Int64Extensions
@@ -35,6 +14,19 @@
 
         private static readonly string[] _decimalUnitSymbols =
             new string[] { "B", "kB", "MB", "GB", "TB", "PB" };
+
+        /// <summary>
+        ///     Returns a string that represents a number of bytes in a human-readable format,
+        ///     using the <see cref="UnitOfInformationPrefix.Binary"/> prefix.
+        /// </summary>
+        /// <param name="value">The <see cref="ulong"/> value, in bytes.</param>
+        /// <returns>
+        ///     A human-readable string representation of <paramref name="value"/>, using powers of 1024.
+        /// </returns>
+        public static string BytesToString(this ulong value)
+        {
+            return value.BytesToString(UnitOfInformationPrefix.Binary);
+        }
 
         /// <summary>
         ///     Returns a string that represents a number of bytes in a human-readable format.
