@@ -1,6 +1,6 @@
 {
   "title": "Steven Volckaert's Enterprise Library - Core",
-  "copyright": "Copyright (c) 2016 Steven Volckaert",
+  "copyright": "Copyright (c) 2016, 2017 Steven Volckaert",
   "description": "Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.\n\nSee https://github.com/stevenvolckaert/enterprise-library for more information.",
   "language": "en-US",
   "version": "1.0.0-*",
