@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.
+
+See https://github.com/stevenvolckaert/enterprise-library for more information.</Description>
+    <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
+    <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Steven Volckaert</Authors>
+    <TargetFrameworks>net35;net452;netstandard1.5</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>StevenVolckaert.Core</AssemblyName>
+    <PackageId>StevenVolckaert.Core</PackageId>
+    <PackageProjectUrl>https://github.com/stevenvolckaert/enterprise-library</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/stevenvolckaert/enterprise-library/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/stevenvolckaert/enterprise-library</RepositoryUrl>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.5' ">1.6.1</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <Reference Include="System" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
