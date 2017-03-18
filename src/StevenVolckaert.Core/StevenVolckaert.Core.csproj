@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>StevenVolckaert.Core</AssemblyName>
+    <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <VersionPrefix>1.0.1</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+    <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
     <Description>Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.
 
 See https://github.com/stevenvolckaert/enterprise-library for more information.</Description>
-    <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
-    <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
-    <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Steven Volckaert</Authors>
-    <TargetFrameworks>net35;net452;netstandard1.5</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard1.5</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>StevenVolckaert.Core</AssemblyName>
     <PackageId>StevenVolckaert.Core</PackageId>
     <PackageProjectUrl>https://github.com/stevenvolckaert/enterprise-library</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/stevenvolckaert/enterprise-library/blob/master/LICENSE</PackageLicenseUrl>

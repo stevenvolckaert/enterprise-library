@@ -1,20 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Unit test project for StevenVolckaert.Core.</Description>
-    <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
-    <AssemblyTitle>StevenVolckaert.Core.Tests</AssemblyTitle>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <Authors>Steven Volckaert</Authors>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
-    <AssemblyName>StevenVolckaert.Core.Tests</AssemblyName>
-    <PackageId>StevenVolckaert.Core.Tests</PackageId>
-    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50;portable-net45+win8</PackageTargetFallback>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
