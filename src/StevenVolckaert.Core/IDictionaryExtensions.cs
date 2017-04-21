@@ -7,8 +7,8 @@
 #endif
 
     /// <summary>
-    ///     Provides extension methods for instances that implement the <see cref="IDictionary{TKey, TValue}"/>
-    ///     interface.
+    ///     Provides extension methods for instances that implement the
+    ///     <see cref="IDictionary{TKey, TValue}"/> interface.
     /// </summary>
     public static class IDictionaryExtensions
     {
@@ -34,8 +34,8 @@
 #endif
 
         /// <summary>
-        ///     Gets the value associated with the specified key, or the type's default value if the key
-        ///     doesn't exist.
+        ///     Gets the value associated with the specified key,
+        ///     or the type's default value if the key doesn't exist.
         /// </summary>
         /// <typeparam name="TKey">The type of keys in the dictionary.</typeparam>
         /// <typeparam name="TValue">The type of values in the dictionary.</typeparam>
@@ -55,11 +55,12 @@
             if (key == null)
                 throw new ArgumentNullException(nameof(key));
 
-            return dictionary.TryGetValue(key, defaultValue: default(TValue));
+            return dictionary.TryGetValue(key, fallbackValue: default(TValue));
         }
 
         /// <summary>
-        ///     Gets the value associated with the specified key, or a default value if the key doesn't exist.
+        ///     Gets the value associated with the specified key,
+        ///     or a specified fallback value if the key doesn't exist.
         /// </summary>
         /// <typeparam name="TKey">The type of keys in the dictionary.</typeparam>
         /// <typeparam name="TValue">The type of values in the dictionary.</typeparam>
@@ -67,15 +68,15 @@
         ///     The <see cref="IDictionary{TKey, TValue}"/> instance this extension method affects.
         /// </param>
         /// <param name="key">The key whose value to get.</param>
-        /// <param name="defaultValue">The default value.</param>
+        /// <param name="fallbackValue">The default value.</param>
         /// <returns>
-        ///     The value associated with the specified key, or <paramref name="defaultValue"/> if
+        ///     The value associated with the specified key, or <paramref name="fallbackValue"/> if
         ///     <paramref name="key"/> doesn't exist.
         /// </returns>
         public static TValue TryGetValue<TKey, TValue>(
             this IDictionary<TKey, TValue> dictionary,
             TKey key,
-            TValue defaultValue
+            TValue fallbackValue
         )
         {
             if (dictionary == null)
@@ -84,7 +85,7 @@
             if (key == null)
                 throw new ArgumentNullException(nameof(key));
 
-            return dictionary.ContainsKey(key) ? dictionary[key] : defaultValue;
+            return dictionary.ContainsKey(key) ? dictionary[key] : fallbackValue;
         }
     }
 }
