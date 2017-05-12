@@ -119,8 +119,7 @@
             if (string.IsNullOrEmpty(value))
                 return null;
 
-            var values = value.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
-            return values.FirstOrDefault();
+            return value.Split(separators, StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
         }
 
         /// <summary>
