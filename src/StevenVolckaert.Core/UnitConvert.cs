@@ -7,7 +7,11 @@
     /// </summary>
     public static class UnitConvert
     {
-        private const double FeetPerMeter = 3.280839895;
+        private const double MillimetersPerInch = 25.4;
+        private const double MillimetersPerFoot = MillimetersPerInch * 12;
+        private const double MillimetersPerYard = MillimetersPerFoot * 3;
+        private const double MetersPerFoot = MillimetersPerFoot / 1000;
+        private const double MetersPerYard = MillimetersPerYard / 1000;
 
         /// <summary>
         ///     Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
@@ -52,43 +56,43 @@
         }
 
         /// <summary>
-        ///     Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meters.
         /// </summary>
         /// <param name="value">The value to convert.</param>
-        /// <returns>The value in meter.</returns>
-        public static double FromFeetToMeter(int value)
+        /// <returns>The value in meters.</returns>
+        public static double FromFeetToMeters(int value)
         {
-            return FromFeetToMeter((double)value);
+            return FromFeetToMeters((double)value);
         }
 
         /// <summary>
-        ///     Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meters.
         /// </summary>
         /// <param name="value">The value to convert.</param>
-        /// <returns>The value in meter.</returns>
-        public static double FromFeetToMeter(double value)
+        /// <returns>The value in meters.</returns>
+        public static double FromFeetToMeters(double value)
         {
-            return value / FeetPerMeter;
+            return value * MetersPerFoot;
         }
 
         /// <summary>
-        ///     Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meters to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>
-        public static double FromMeterToFeet(int value)
+        public static double FromMetersToFeet(int value)
         {
-            return FromMeterToFeet((double)value);
+            return FromMetersToFeet((double)value);
         }
 
         /// <summary>
-        ///     Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meters to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>
-        public static double FromMeterToFeet(double value)
+        public static double FromMetersToFeet(double value)
         {
-            return value * FeetPerMeter;
+            return value / MetersPerFoot;
         }
     }
 }
