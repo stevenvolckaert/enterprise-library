@@ -7,7 +7,11 @@
     /// </summary>
     public static class UnitConvert
     {
-        private const double FeetPerMeter = 3.280839895;
+        private const double MillimetersPerInch = 25.4;
+        private const double MillimetersPerFoot = MillimetersPerInch * 12;
+        private const double MillimetersPerYard = MillimetersPerFoot * 3;
+        private const double MetersPerFoot = MillimetersPerFoot / 1000;
+        private const double MetersPerYard = MillimetersPerYard / 1000;
 
         /// <summary>
         ///     Converts a value in degrees Celsius (°C) to its equivalent in degrees Fahrenheit (°F).
@@ -68,7 +72,7 @@
         /// <returns>The value in meters.</returns>
         public static double FromFeetToMeters(double value)
         {
-            return value / FeetPerMeter;
+            return value * MetersPerFoot;
         }
 
         /// <summary>
@@ -88,7 +92,7 @@
         /// <returns>The value in feet.</returns>
         public static double FromMetersToFeet(double value)
         {
-            return value * FeetPerMeter;
+            return value / MetersPerFoot;
         }
     }
 }
