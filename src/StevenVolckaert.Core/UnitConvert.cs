@@ -52,41 +52,41 @@
         }
 
         /// <summary>
-        ///     Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meters.
         /// </summary>
         /// <param name="value">The value to convert.</param>
-        /// <returns>The value in meter.</returns>
-        public static double FromFeetToMeter(int value)
+        /// <returns>The value in meters.</returns>
+        public static double FromFeetToMeters(int value)
         {
-            return FromFeetToMeter((double)value);
+            return FromFeetToMeters((double)value);
         }
 
         /// <summary>
-        ///     Converts a value in feet to its equivalent in meter.
+        ///     Converts a value in feet to its equivalent in meters.
         /// </summary>
         /// <param name="value">The value to convert.</param>
-        /// <returns>The value in meter.</returns>
-        public static double FromFeetToMeter(double value)
+        /// <returns>The value in meters.</returns>
+        public static double FromFeetToMeters(double value)
         {
             return value / FeetPerMeter;
         }
 
         /// <summary>
-        ///     Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meters to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>
-        public static double FromMeterToFeet(int value)
+        public static double FromMetersToFeet(int value)
         {
-            return FromMeterToFeet((double)value);
+            return FromMetersToFeet((double)value);
         }
 
         /// <summary>
-        ///     Converts a value in meter to its equivalent in feet.
+        ///     Converts a value in meters to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
         /// <returns>The value in feet.</returns>
-        public static double FromMeterToFeet(double value)
+        public static double FromMetersToFeet(double value)
         {
             return value * FeetPerMeter;
         }
