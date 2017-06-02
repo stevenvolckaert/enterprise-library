@@ -8,8 +8,8 @@
     public class UnitConvertTests
     {
         /// <summary>
-        /// A list of tuples that links degrees Celsius to degrees Fahrenheit.
-        /// Source http://www.rapidtables.com/convert/temperature/celsius-to-fahrenheit.htm
+        ///     A list of tuples that links degrees Celsius to degrees Fahrenheit.
+        ///     Source http://www.rapidtables.com/convert/temperature/celsius-to-fahrenheit.htm
         /// </summary>
         private static readonly List<Tuple<int, int>> _temperatureTuples =
             new List<Tuple<int, int>>
@@ -68,18 +68,6 @@
             _temperatureTuples.ForEach(
                 x => Assert.AreEqual(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2))
             );
-        }
-
-        //[TestMethod]
-        public void FromFeetToMeterTest()
-        {
-            throw new NotImplementedException();
-        }
-
-        //[TestMethod]
-        public void FromMeterToFeetTest()
-        {
-            throw new NotImplementedException();
         }
     }
 }
