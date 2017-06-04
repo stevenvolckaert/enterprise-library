@@ -10,6 +10,16 @@
         private const double MillimetersPerInch = 25.4;
         private const double MillimetersPerFoot = MillimetersPerInch * 12;
         private const double MillimetersPerYard = MillimetersPerFoot * 3;
+
+        /// <summary>
+        ///     The millimeters per DTP point. The DTP is defined as 1⁄72 of an international inch
+        ///     (exactly 25.4 mm).
+        /// </summary>
+        /// <remarks>
+        ///     See https://en.wikipedia.org/wiki/Point_(typography) for more information.
+        /// </remarks>
+        private const double MillimetersPerPoint = MillimetersPerInch / 72;
+
         private const double MetersPerFoot = MillimetersPerFoot / 1000;
         private const double MetersPerYard = MillimetersPerYard / 1000;
 
@@ -76,6 +86,16 @@
         }
 
         /// <summary>
+        ///     Converts a value in international inches to its equivalent in millimeters.
+        /// </summary>
+        /// <param name="value">The value to convert.</param>
+        /// <returns>The value in millimeters.</returns>
+        public static double FromInchesToMillimeters(double value)
+        {
+            return value * MillimetersPerInch;
+        }
+
+        /// <summary>
         ///     Converts a value in meters to its equivalent in feet.
         /// </summary>
         /// <param name="value">The value to convert.</param>
@@ -93,6 +113,36 @@
         public static double FromMetersToFeet(double value)
         {
             return value / MetersPerFoot;
+        }
+
+        /// <summary>
+        ///     Converts a value in millimeters to its equivalent in international inches.
+        /// </summary>
+        /// <param name="value">The value to convert.</param>
+        /// <returns>The value in international inches.</returns>
+        public static double FromMillimetersToInches(double value)
+        {
+            return value / MillimetersPerInch;
+        }
+
+        /// <summary>
+        ///     Converts a value in millimeters to its equivalent in DTPs (Desktop Publishing Points).
+        /// </summary>
+        /// <param name="value">The value to convert.</param>
+        /// <returns>The value in DTPs (Desktop Publishing Points).</returns>
+        public static double FromMillimetersToPoints(double value)
+        {
+            return value / MillimetersPerPoint;
+        }
+
+        /// <summary>
+        ///     Converts a value in DTPs (Desktop Publishing Points) to its equivalent in millimeters.
+        /// </summary>
+        /// <param name="value">The value to convert.</param>
+        /// <returns>The value in millimeters.</returns>
+        public static double FromPointsToMillimeters(double value)
+        {
+            return value * MillimetersPerPoint;
         }
     }
 }
