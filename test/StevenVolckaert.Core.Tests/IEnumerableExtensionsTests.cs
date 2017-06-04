@@ -1,12 +1,32 @@
 ﻿namespace StevenVolckaert.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class IEnumerableExtensionsTests
     {
+        [TestMethod]
+        public void AppendTest()
+        {
+            var source = new string[] { "foo", "bar" };
+            var expected = new string[] { "foo", "bar", "baz" };
+            var actual = source.Append("baz").ToArray();
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void PrependTest()
+        {
+            var source = new string[] { "bar", "baz" };
+            var expected = new string[] { "foo", "bar", "baz" };
+            var actual = source.Prepend("foo").ToArray();
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
         [TestMethod]
         public void ExceptTest()
         {
