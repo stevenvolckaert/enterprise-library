@@ -14,6 +14,58 @@
     public static class IEnumerableExtensions
     {
         /// <summary>
+        ///     Adds a specified element to the end of the sequence.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        ///     The <see cref="IEnumerable{T}"/> instance this extension method affects.
+        /// </param>
+        /// <param name="element">The element to add.</param>
+        /// <returns>
+        ///     An <see cref="IEnumerable{T}"/> instance containing all elements of <paramref name="source"/>,
+        ///     followed by <paramref name="element"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="source"/> is <c>null</c>.
+        /// </exception>
+        public static IEnumerable<T> Append<T>(this IEnumerable<T> source, T element)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            foreach (var sourceElement in source)
+                yield return sourceElement;
+
+            yield return element;
+        }
+
+        /// <summary>
+        ///     Adds a specified element to the beginning of the sequence.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">
+        ///     The <see cref="IEnumerable{T}"/> instance this extenion method affects.
+        /// </param>
+        /// <param name="element">The element to add.</param>
+        /// <returns>
+        ///     An <see cref="IEnumerable{T}"/> instance containing <paramref name="element"/>,
+        ///     followed by all elements of <paramref name="source"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="source"/> is <c>null</c>.
+        /// </exception>
+        public static IEnumerable<T> Prepend<T>(this IEnumerable<T> source, T element)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            yield return element;
+
+            foreach (var sourceElement in source)
+                yield return sourceElement;
+        }
+
+        /// <summary>
         ///     Determines whether a sequence contains no elements.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
