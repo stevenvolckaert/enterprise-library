@@ -1,4 +1,4 @@
-version: 1.0.0-{build}
+version: 1.1.0-{build}
 build:
   verbosity: minimal
 configuration:
@@ -6,14 +6,15 @@ configuration:
 - Release
 platform: Any CPU
 environment:
+  image: Visual Studio 2017
   DOTNET_CLI_TELEMETRY_OPTOUT: 1
 init:
-- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+- ps: $Env:VERSION_SUFFIX = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 before_build:
 - appveyor-retry dotnet restore -v Minimal
 build_script:
-- dotnet build "src\StevenVolckaert.Core" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
+- dotnet build "src\StevenVolckaert.Core" -c %CONFIGURATION% --version-suffix %VERSION_SUFFIX%
 test_script:
-- dotnet test "test\StevenVolckaert.Core.Tests" -c %CONFIGURATION%
+- dotnet test "test\StevenVolckaert.Core.Tests\StevenVolckaert.Core.Tests.csproj" -c %CONFIGURATION%
 cache:
 - '%USERPROFILE%\.nuget\packages'

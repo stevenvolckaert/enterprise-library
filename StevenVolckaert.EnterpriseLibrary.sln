@@ -1,25 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StevenVolckaert.Core", "src\StevenVolckaert.Core\StevenVolckaert.Core.xproj", "{3E5DE170-18C8-4B09-90A6-7D158A6C54C5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{00269925-9ABB-475F-A63B-B57C55E26CD3}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
-		global.json = global.json
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{887100A5-003F-4148-85D8-9D9C9E7E5125}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StevenVolckaert.Core.Tests", "test\StevenVolckaert.Core.Tests\StevenVolckaert.Core.Tests.xproj", "{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54EC9438-05ED-4ACD-AEF6-B31B353069EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StevenVolckaert.Core", "src\StevenVolckaert.Core\StevenVolckaert.Core.csproj", "{9493EB60-BD91-426A-BDF1-4390456046E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StevenVolckaert.Core.Tests", "test\StevenVolckaert.Core.Tests\StevenVolckaert.Core.Tests.csproj", "{B2222404-4375-458C-9F04-C5F1D279CBA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,20 +26,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3E5DE170-18C8-4B09-90A6-7D158A6C54C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E5DE170-18C8-4B09-90A6-7D158A6C54C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E5DE170-18C8-4B09-90A6-7D158A6C54C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E5DE170-18C8-4B09-90A6-7D158A6C54C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9493EB60-BD91-426A-BDF1-4390456046E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9493EB60-BD91-426A-BDF1-4390456046E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9493EB60-BD91-426A-BDF1-4390456046E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9493EB60-BD91-426A-BDF1-4390456046E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2222404-4375-458C-9F04-C5F1D279CBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2222404-4375-458C-9F04-C5F1D279CBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2222404-4375-458C-9F04-C5F1D279CBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2222404-4375-458C-9F04-C5F1D279CBA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3E5DE170-18C8-4B09-90A6-7D158A6C54C5} = {54EC9438-05ED-4ACD-AEF6-B31B353069EA}
-		{A97F5579-7D70-4FD4-8D6B-DC12E4909AD2} = {887100A5-003F-4148-85D8-9D9C9E7E5125}
+		{9493EB60-BD91-426A-BDF1-4390456046E1} = {54EC9438-05ED-4ACD-AEF6-B31B353069EA}
+		{B2222404-4375-458C-9F04-C5F1D279CBA6} = {887100A5-003F-4148-85D8-9D9C9E7E5125}
 	EndGlobalSection
 EndGlobal

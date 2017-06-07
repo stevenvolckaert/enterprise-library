@@ -5,7 +5,8 @@
     using System.Linq;
 
     /// <summary>
-    ///     Provides extension methods for instances that implement the <see cref="ICollection{T}"/> interface.
+    ///     Provides extension methods for instances that implement the <see cref="ICollection{T}"/>
+    ///     interface.
     /// </summary>
     public static class ICollectionExtensions
     {
@@ -27,8 +28,40 @@
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
 
-            if (sourceCollection != null)
-                foreach (TSource value in sourceCollection)
+            source.AddRange(sourceCollection, isDistinct: false);
+        }
+
+        /// <summary>
+        ///     Adds the elements of the specified collection to the end of the <see cref="ICollection{T}"/>
+        ///     instance.
+        /// </summary>
+        /// <typeparam name="TSource">The type of elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">The target data collection.</param>
+        /// <param name="isDistinct">
+        ///     A value that indicates whether to skip adding elements from
+        ///     <paramref name="sourceCollection"/> that <paramref name="source"/> already contains,
+        ///     using the default equality comparer.
+        /// </param>
+        /// <param name="sourceCollection">
+        ///     The collection whose elements should be added to the <see cref="ICollection{T}"/> instance.
+        /// </param>
+        /// <exception cref="ArgumentNullException"><paramref name="source"/> is <c>null</c>.</exception>
+        public static void AddRange<TSource>(
+            this ICollection<TSource> source,
+            IEnumerable<TSource> sourceCollection,
+            bool isDistinct
+        )
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (sourceCollection == null)
+                return;
+
+            foreach (TSource value in sourceCollection)
+                if (isDistinct && source.Contains(value))
+                    continue;
+                else
                     source.Add(value);
         }
 
@@ -42,7 +75,10 @@
         /// <exception cref="ArgumentNullException">
         ///     <paramref name="source"/> or <paramref name="predicate"/> is <c>null</c>.
         /// </exception>
-        public static void RemoveFirst<TSource>(this ICollection<TSource> source, Func<TSource, bool> predicate)
+        public static void RemoveFirst<TSource>(
+            this ICollection<TSource> source,
+            Func<TSource, bool> predicate
+        )
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
