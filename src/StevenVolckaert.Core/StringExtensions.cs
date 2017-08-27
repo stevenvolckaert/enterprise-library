@@ -50,20 +50,6 @@
         }
 
         /// <summary>
-        ///     Returns the string, or a default value if the string is <c>null</c> or empty.
-        /// </summary>
-        /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>
-        ///     The string, or the default value if the string is <c>null</c> or empty.
-        /// </returns>
-        [Obsolete("Use of this method is deprecated. Use string.FallbackIfNullOrEmpty(string) instead.")]
-        public static string DefaultIfNullOrEmpty(this string value, string defaultValue)
-        {
-            return value.FallbackIfNullOrWhiteSpace(defaultValue);
-        }
-
-        /// <summary>
         ///     Returns the string, or a specified fallback value if the string is <c>null</c> or empty.
         /// </summary>
         /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
@@ -74,20 +60,6 @@
         public static string FallbackIfNullOrEmpty(this string value, string fallbackValue)
         {
             return string.IsNullOrEmpty(value) ? fallbackValue : value;
-        }
-
-        /// <summary>
-        ///     Returns the string, or a default value if the string is <c>null</c>, empty, or white space.
-        /// </summary>
-        /// <param name="value">The <see cref="string"/> value this extension method affects.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>
-        ///     The string, or the default value if the string is <c>null</c>, empty, or white space.
-        /// </returns>
-        [Obsolete("Use of this method is deprecated. Use string.FallbackIfNullOrWhiteSpace(string) instead.")]
-        public static string DefaultIfNullOrWhiteSpace(this string value, string defaultValue)
-        {
-            return value.FallbackIfNullOrWhiteSpace(defaultValue);
         }
 
         /// <summary>
