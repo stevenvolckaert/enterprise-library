@@ -4,8 +4,6 @@
     <AssemblyName>StevenVolckaert.Core</AssemblyName>
     <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
     <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
     <Description>Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.
 
