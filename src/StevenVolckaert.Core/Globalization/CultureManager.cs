@@ -9,7 +9,7 @@
     /// <summary>
     ///     Manages cultures of an application.
     /// </summary>
-    public class CultureManager
+    public class CultureManager : ICultureManager
     {
         private string _currentCultureName;
         /// <summary>
@@ -147,16 +147,19 @@
                 : _supportedCultures.First().Key;
 
             _currentCultureName = SetDefaultCulture();
-            _supportedCultures = _supportedCultures.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+            _supportedCultures =
+                _supportedCultures.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
         }
 
         /// <summary>
-        ///     Returns an instance of the <see cref="CultureInfo"/> class based on the culture specified by name,
-        ///     or <c>null</c> if the culture is not supported by the current operating system.
+        ///     Returns an instance of the <see cref="CultureInfo"/> class based on the culture specified by
+        ///     name, or <c>null</c> if the culture is not supported by the current operating system.
         /// </summary>
         /// <param name="cultureName">The name of a culture.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="cultureName"/> is <c>null</c>.</exception>
-        public static CultureInfo GetCultureInfo(string cultureName)
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="cultureName"/> is <c>null</c>.
+        /// </exception>
+        public CultureInfo GetCultureInfo(string cultureName)
         {
             try
             {
@@ -165,7 +168,11 @@
             catch (ArgumentNullException)
             {
                 Debug.WriteLine(
-                    message: string.Format(CultureInfo.CurrentCulture, Resources.ValueNull, nameof(cultureName)),
+                    message: string.Format(
+                        CultureInfo.CurrentCulture,
+                        Resources.ValueNull,
+                        nameof(cultureName)
+                    ),
                     callerMemberName: nameof(GetCultureInfo)
                 );
                 return null;
@@ -177,7 +184,11 @@
 #endif
             {
                 Debug.WriteLine(
-                    message: string.Format(CultureInfo.CurrentCulture, Resources.IllegalCultureName, cultureName),
+                    message: string.Format(
+                        CultureInfo.CurrentCulture,
+                        Resources.IllegalCultureName,
+                        cultureName
+                    ),
                     callerMemberName: nameof(GetCultureInfo)
                 );
                 return null;
@@ -187,9 +198,13 @@
         /// <summary>
         ///     Convert a given culture name to the name of it's associated neutral culture.
         /// </summary>
-        /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
-        /// <returns>The name of the neutral culture, or <c>null</c> if the culture is not supported.</returns>
-        public static string GetNeutralCultureName(string cultureName)
+        /// <param name="cultureName">
+        ///     The name of the culture, representing a specific or neutral culture.
+        /// </param>
+        /// <returns>
+        ///     The name of the neutral culture, or <c>null</c> if the culture is not supported.
+        /// </returns>
+        public string GetNeutralCultureName(string cultureName)
         {
             if (cultureName.IsNullOrWhiteSpace())
                 return null;
@@ -209,7 +224,9 @@
         ///     Returns a value that indicates whether a given culture, or its associated neutral culture,
         ///     is supported by this culture manager.
         /// </summary>
-        /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
+        /// <param name="cultureName">
+        ///     The name of the culture, representing a specific or neutral culture.
+        /// </param>
         public bool IsCultureSupported(string cultureName)
         {
             if (IsSpecificCultureSupported(cultureName))
@@ -248,11 +265,13 @@
         ///     Sets the application's current culture.
         ///     If the given culture is not supported, the manager's default culture is selected.
         ///     <para>
-        ///     If a given specific culture is not supported, its associated neutral culture is selected
-        ///     (if it exists).
+        ///         If a given specific culture is not supported, its associated neutral culture is selected
+        ///         (if it exists).
         ///     </para>
         /// </summary>
-        /// <param name="cultureName">The name of the culture, representing a specific or neutral culture.</param>
+        /// <param name="cultureName">
+        ///     The name of the culture, representing a specific or neutral culture.
+        /// </param>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>
         /// <exception cref="ArgumentException">
         ///     <paramref name="cultureName"/> is <c>null</c>, empty, or white space.
@@ -275,7 +294,9 @@
         /// </summary>
         /// <param name="cultureNames">An array that contains zero or more culture names.</param>
         /// <returns>The name of the manager's culture when the operation finishes.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="cultureNames"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="cultureNames"/> is <c>null</c>.
+        /// </exception>
         public string SetCulture(params string[] cultureNames)
         {
             if (cultureNames == null)

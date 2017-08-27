@@ -4,14 +4,12 @@
     <AssemblyName>StevenVolckaert.Core</AssemblyName>
     <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
     <Copyright>Copyright (c) 2016, 2017 Steven Volckaert</Copyright>
     <Description>Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code.
 
 See https://github.com/stevenvolckaert/enterprise-library for more information.</Description>
     <Authors>Steven Volckaert</Authors>
-    <TargetFrameworks>net452;netstandard1.5</TargetFrameworks>
+    <TargetFrameworks>netstandard1.5;net452</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>StevenVolckaert.Core</PackageId>
     <PackageProjectUrl>https://github.com/stevenvolckaert/enterprise-library</PackageProjectUrl>
@@ -23,9 +21,9 @@ See https://github.com/stevenvolckaert/enterprise-library for more information.<
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>StevenVolckaert</RootNamespace>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
@@ -35,6 +33,21 @@ See https://github.com/stevenvolckaert/enterprise-library for more information.<
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

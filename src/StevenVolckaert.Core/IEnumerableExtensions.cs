@@ -83,24 +83,6 @@
         }
 
         /// <summary>
-        ///     Determines whether a sequence contains no elements.
-        /// </summary>
-        /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
-        /// <param name="source">The <see cref="IEnumerable{T}"/> instance to check for emptiness. </param>
-        /// <returns>
-        ///     <c>true</c> if the source sequence contains no elements; otherwise, <c>false</c>.
-        /// </returns>
-        /// <exception cref="ArgumentNullException"><paramref name="source"/> is <c>null</c>.</exception>
-        [Obsolete("Use of this method is deprecated. Use IEnumerable<T>.IsEmpty<T>() instead.")]
-        public static bool Empty<TSource>(this IEnumerable<TSource> source)
-        {
-            if (source == null)
-                throw new ArgumentNullException(nameof(source));
-
-            return !source.Any();
-        }
-
-        /// <summary>
         ///     Determines whether none of the elements of a sequence satisfies a condition.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
