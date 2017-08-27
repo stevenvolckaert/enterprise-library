@@ -11,7 +11,7 @@
 
 See https://github.com/stevenvolckaert/enterprise-library for more information.</Description>
     <Authors>Steven Volckaert</Authors>
-    <TargetFrameworks>net452;netstandard1.5</TargetFrameworks>
+    <TargetFrameworks>netstandard1.5;net452</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>StevenVolckaert.Core</PackageId>
     <PackageProjectUrl>https://github.com/stevenvolckaert/enterprise-library</PackageProjectUrl>
@@ -35,6 +35,21 @@ See https://github.com/stevenvolckaert/enterprise-library for more information.<
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
