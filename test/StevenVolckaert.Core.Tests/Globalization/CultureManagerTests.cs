@@ -1,9 +1,8 @@
 ﻿namespace StevenVolckaert.Globalization.Tests
 {
     using Globalization;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
-    [TestClass]
     public class CultureManagerTests
     {
         /* TODO Implement the unit tests. For instance: Calling any of the SetCulture methods should return
@@ -11,55 +10,47 @@
          * culture manager (after execution). Steven Volckaert. December 13, 2016.
          */
 
-        //[TestMethod]
-        public void CultureManagerTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void CultureManagerTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void CultureManagerTest1()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void CultureManagerTest1()
+        //{
+        //}
 
-        //[TestMethod]
-        public void GetCultureInfoTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void GetCultureInfoTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void GetNeutralCultureNameTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void GetNeutralCultureNameTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void IsCultureSupportedTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void IsCultureSupportedTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void IsSpecificCultureSupportedTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void IsSpecificCultureSupportedTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void IsCultureSelectedTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void IsCultureSelectedTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void SetCultureTest1()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void SetCultureTest1()
+        //{
+        //}
 
-        [TestMethod]
+        [Fact]
         public void SetCultureTest2()
         {
             var cultureManager =
@@ -68,23 +59,21 @@
                     supportedCultureNames: new string[] { "en-US", "nl-BE" }
                 );
 
-            Assert.AreEqual("en-US", cultureManager.SetCulture("pt", "zh-Hans"));
-            Assert.AreEqual("nl-BE", cultureManager.SetCulture("pt", "zh-Hans", "nl-BE"));
+            Assert.Equal("en-US", cultureManager.SetCulture("pt", "zh-Hans"));
+            Assert.Equal("nl-BE", cultureManager.SetCulture("pt", "zh-Hans", "nl-BE"));
 
             // TODO Add additional asserts.
             // Steven Volckaert. December 13, 2016.
         }
 
-        //[TestMethod]
-        public void SetDefaultCultureTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void SetDefaultCultureTest()
+        //{
+        //}
 
-        //[TestMethod]
-        public void SetSpecificCultureTest()
-        {
-            Assert.Fail();
-        }
+        //[Fact]
+        //public void SetSpecificCultureTest()
+        //{
+        //}
     }
 }

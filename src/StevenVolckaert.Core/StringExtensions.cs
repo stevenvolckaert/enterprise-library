@@ -376,6 +376,31 @@
         }
 
         /// <summary>
+        ///     Converts the string to a specified enumeration, or returns the enumeration's default value
+        ///     if the conversion fails.
+        /// </summary>
+        /// <typeparam name="TEnum">The type of <see cref="Enum"/> to parse as.</typeparam>
+        /// <param name="value">The <see cref="string"/> value.</param>
+        public static TEnum TryParseAs<TEnum>(this string value)
+            where TEnum : struct
+        {
+            return value.TryParseAs<TEnum>(ignoreCase: false);
+        }
+
+        /// <summary>
+        ///     Converts the string to a specified enumeration, or returns the enumeration's default value
+        ///     if the conversion fails. A value specifies whether the operation is case-insensitive.
+        /// </summary>
+        /// <typeparam name="TEnum">The type of <see cref="Enum"/> to parse as.</typeparam>
+        /// <param name="value">The <see cref="string"/> value.</param>
+        /// <param name="ignoreCase"><c>true</c> to ignore case; <c>false</c> to regard case.</param>
+        public static TEnum TryParseAs<TEnum>(this string value, bool ignoreCase)
+            where TEnum : struct
+        {
+            return value.TryParseAs<TEnum>(defaultResult: default(TEnum), ignoreCase: ignoreCase);
+        }
+
+        /// <summary>
         ///     Converts the string to a specified enumeration, or returns a specified default result if
         ///     the conversion fails.
         /// </summary>
@@ -390,7 +415,7 @@
 
         /// <summary>
         ///     Converts the string to a specified enumeration, or returns a specified default result if
-        ///     the conversion fails. A value specified whether the operation is case-insensitive.
+        ///     the conversion fails. A value specifies whether the operation is case-insensitive.
         /// </summary>
         /// <typeparam name="TEnum">The type of <see cref="Enum"/> to parse as.</typeparam>
         /// <param name="value">The <see cref="string"/> value.</param>

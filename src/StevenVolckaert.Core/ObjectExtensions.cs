@@ -13,9 +13,12 @@
         /// <summary>
         ///     Casts the object as a <see cref="List{T}"/> of the specified type.
         /// </summary>
-        /// <typeparam name="TResult">The type to cast the elements of <paramref name="source"/> to.</typeparam>
+        /// <typeparam name="TResult">
+        ///     The type to cast the elements of <paramref name="source"/> to.
+        /// </typeparam>
         /// <param name="source">
-        ///     The <see cref="object"/> that needs to be casted to a <see cref="List{T}"/> of the specified type.
+        ///     The <see cref="object"/> that needs to be casted to a <see cref="List{T}"/> of the specified
+        ///     type.
         /// </param>
         /// <returns>
         ///     A <see cref="List{T}"/> that contains each element of the <paramref name="source"/>
@@ -39,6 +42,34 @@
             return result == null
                 ? ((List<object>)source).Cast<TResult>().ToList()
                 : result;
+        }
+
+        /// <summary>
+        ///     Returns a value that indicates whether the object is <c>null</c>.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="object"/> instance this extension method affects.
+        /// </param>
+        /// <returns>
+        ///     <c>true</c> if <paramref name="value"/> is <c>null</c>; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsNull(this object value)
+        {
+            return null == value;
+        }
+
+        /// <summary>
+        ///     Returns a value that indicates whether the object is not <c>null</c>.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="object"/> instance this extension method affects.
+        /// </param>
+        /// <returns>
+        ///     <c>true</c> if <paramref name="value"/> is not <c>null</c>; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsNotNull(this object value)
+        {
+            return null != value;
         }
     }
 }

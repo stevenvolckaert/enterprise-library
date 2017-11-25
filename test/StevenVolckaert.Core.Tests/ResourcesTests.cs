@@ -1,17 +1,16 @@
 ﻿namespace StevenVolckaert.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
-    [TestClass]
     public class ResourcesTests
     {
-        [TestMethod]
+        [Fact]
         public void CanAccessResources()
         {
             var resourceManager = Resources.ResourceManager;
 
-            Assert.IsNotNull(resourceManager);
-            Assert.IsNotNull(Resources.ValueNullEmptyOrWhiteSpace);
+            Assert.NotNull(resourceManager);
+            Assert.NotNull(Resources.ValueNullEmptyOrWhiteSpace);
         }
     }
 }
