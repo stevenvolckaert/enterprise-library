@@ -8,7 +8,7 @@
     public class StringExtensionsTests
     {
         [TestMethod]
-        public void IsGuidTest()
+        public void IsGuid_ReturnsTrue()
         {
             var validGuidStrings = new List<string>
             {
@@ -29,7 +29,11 @@
             validGuidStrings.ForEach(
                 x => Assert.IsTrue(x.IsGuid(), $"Expected string value '{x}' to be a valid GUID.")
             );
+        }
 
+        [TestMethod]
+        public void IsGuid_ReturnsFalse()
+        {
             var invalidGuidStrings = new List<string>
             {
                 // Contains invalid character ('g').
@@ -52,7 +56,15 @@
         public enum MockedEnumeration
         {
             Foo,
-            Bar
+            Bar,
+            Qux = 0
+
+        }
+
+        public enum MockedEnumerationWithoutDefaultValue
+        {
+            Foo = 1,
+            Bar = 2,
         }
 
         [TestMethod]
@@ -84,7 +96,7 @@
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void ParseAsWhileIgnoringCase_ThrowsArgumentException()
+        public void ParseAs_WhileIgnoringCase_ThrowsArgumentException()
         {
             "baz".ParseAs<MockedEnumeration>(ignoreCase: true);
         }
@@ -92,20 +104,50 @@
         [TestMethod]
         public void TryParseAs_Succeeds()
         {
-            Assert.AreEqual(MockedEnumeration.Foo, "Foo".TryParseAs(MockedEnumeration.Foo));
-            Assert.AreEqual(MockedEnumeration.Bar, "Bar".TryParseAs(MockedEnumeration.Foo));
-            Assert.AreEqual(MockedEnumeration.Foo, "Baz".TryParseAs(MockedEnumeration.Foo));
+            Assert.AreEqual(MockedEnumeration.Foo, "Foo".TryParseAs<MockedEnumeration>());
+            Assert.AreEqual(MockedEnumeration.Bar, "Bar".TryParseAs<MockedEnumeration>());
+            Assert.AreEqual(MockedEnumeration.Qux, "Baz".TryParseAs<MockedEnumeration>());
 
-            string str = null;
-            Assert.AreEqual(MockedEnumeration.Bar, str.TryParseAs(MockedEnumeration.Bar));
+            Assert.AreEqual(
+                MockedEnumerationWithoutDefaultValue.Foo,
+                "Foo".TryParseAs<MockedEnumerationWithoutDefaultValue>()
+            );
+            Assert.AreEqual(
+                MockedEnumerationWithoutDefaultValue.Bar,
+                "Bar".TryParseAs<MockedEnumerationWithoutDefaultValue>()
+            );
+            Assert.AreEqual(
+                default(MockedEnumerationWithoutDefaultValue),
+                "Baz".TryParseAs<MockedEnumerationWithoutDefaultValue>()
+            );
         }
 
         [TestMethod]
-        public void TryParseAsWhileIgnoringCase_Succeeds()
+        public void TryParseAs_WithDefaultResult_Succeeds()
         {
-            Assert.AreEqual(MockedEnumeration.Foo, "foo".TryParseAs(MockedEnumeration.Foo, ignoreCase: true));
-            Assert.AreEqual(MockedEnumeration.Bar, "bar".TryParseAs(MockedEnumeration.Foo, ignoreCase: true));
-            Assert.AreEqual(MockedEnumeration.Foo, "baz".TryParseAs(MockedEnumeration.Foo, ignoreCase: true));
+            Assert.AreEqual(MockedEnumeration.Foo, "Foo".TryParseAs(defaultResult: MockedEnumeration.Foo));
+            Assert.AreEqual(MockedEnumeration.Bar, "Bar".TryParseAs(defaultResult: MockedEnumeration.Foo));
+            Assert.AreEqual(MockedEnumeration.Foo, "Baz".TryParseAs(defaultResult: MockedEnumeration.Foo));
+
+            string str = null;
+            Assert.AreEqual(MockedEnumeration.Bar, str.TryParseAs(defaultResult: MockedEnumeration.Bar));
+        }
+
+        [TestMethod]
+        public void TryParseAs_WithDefaultResult_WhileIgnoringCase_Succeeds()
+        {
+            Assert.AreEqual(
+                MockedEnumeration.Foo,
+                "foo".TryParseAs(defaultResult: MockedEnumeration.Foo, ignoreCase: true)
+            );
+            Assert.AreEqual(
+                MockedEnumeration.Bar,
+                "bar".TryParseAs(defaultResult: MockedEnumeration.Foo, ignoreCase: true)
+            );
+            Assert.AreEqual(
+                MockedEnumeration.Foo,
+                "baz".TryParseAs(defaultResult: MockedEnumeration.Foo, ignoreCase: true)
+            );
         }
 
         [TestMethod]
