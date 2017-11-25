@@ -34,13 +34,13 @@
 
             var actual = source.Except("xxx");
             Assert.True(actual.Count() == 3);
-            Assert.False(actual.Contains("xxx"));
+            Assert.DoesNotContain("xxx", collection: actual);
 
             foreach (var item in source)
             {
                 actual = source.Except(item);
                 Assert.True(actual.Count() == 2);
-                Assert.False(actual.Contains(item));
+                Assert.DoesNotContain(item, collection: actual);
             }
         }
 
@@ -214,10 +214,10 @@
         [Fact]
         public void UnionTest()
         {
-            var source = new string[] { "foo", "bar" };
-            var actual = source.Union("foo").Union("baz");
+            var subject = new string[] { "foo", "bar" };
+            var actual = subject.Union("foo").Union("baz");
             Assert.True(actual.Count() == 3);
-            Assert.True(actual.Contains("baz"));
+            Assert.Contains("baz", actual);
         }
     }
 }
