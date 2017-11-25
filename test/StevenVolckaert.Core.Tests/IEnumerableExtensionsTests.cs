@@ -1,6 +1,7 @@
 ﻿namespace StevenVolckaert.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Xunit;
 
@@ -60,10 +61,47 @@
         }
 
         [Fact]
+        public void IsEmpty_ReturnsTrue()
+        {
+            var source = new string[] { };
+            Assert.True(source.IsEmpty());
+        }
+
+        [Fact]
+        public void IsEmpty_ReturnsFalse()
+        {
+            var source = new string[] { "foo" };
+            Assert.False(source.IsEmpty());
+        }
+
+        [Fact]
+        public void IsEmpty_ThrowsArgumentNullException()
+        {
+            IEnumerable<string> source = null;
+            Assert.Throws<ArgumentNullException>(() => source.IsEmpty());
+        }
+
+        [Fact]
+        public void IsNullOrEmpty_ReturnsTrue()
+        {
+            IEnumerable<string> source = null;
+            Assert.True(source.IsNullOrEmpty());
+
+            source = Enumerable.Empty<string>();
+            Assert.True(source.IsNullOrEmpty());
+        }
+
+        [Fact]
+        public void IsNullOrEmpty_ReturnsFalse()
+        {
+            IEnumerable<string> source = new string[] { "foo" };
+            Assert.False(source.IsNullOrEmpty());
+        }
+
+        [Fact]
         public void OrderByOrdinal_ThrowsImmediatelyWhenArgumentIsNull()
         {
-            string[] source = null;
-
+            IEnumerable<string> source = null;
             Assert.Throws<ArgumentNullException>(() => source.OrderByOrdinal(x => x));
         }
 
