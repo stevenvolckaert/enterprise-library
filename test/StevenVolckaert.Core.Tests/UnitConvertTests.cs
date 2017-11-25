@@ -2,9 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
-    [TestClass]
     public class UnitConvertTests
     {
         /// <summary>
@@ -54,19 +53,19 @@
                 Tuple.Create(300, 572),
             };
 
-        [TestMethod]
+        [Fact]
         public void FromCelsiusToFahrenheitTest()
         {
             _temperatureTuples.ForEach(
-                x => Assert.AreEqual(x.Item2, UnitConvert.FromCelsiusToFahrenheit(x.Item1))
+                x => Assert.Equal(x.Item2, UnitConvert.FromCelsiusToFahrenheit(x.Item1))
             );
         }
 
-        [TestMethod]
+        [Fact]
         public void FromFahrenheitToCelsiusTest()
         {
             _temperatureTuples.ForEach(
-                x => Assert.AreEqual(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2))
+                x => Assert.Equal(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2))
             );
         }
     }

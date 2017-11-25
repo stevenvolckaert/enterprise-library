@@ -1,45 +1,44 @@
 ﻿namespace StevenVolckaert.Tests
 {
     using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
-    [TestClass]
     public class ICollectionExtensionsTests
     {
-        [TestMethod]
+        [Fact]
         public void AddRangeTest()
         {
             var source = new List<string> { "foo", "bar", "baz" };
-            var other = new List<string> { "bar", "foo", "qux" };
-            var expected = new List<string> { "foo", "bar", "baz", "bar", "foo", "qux" };
+            var other = new string[] { "bar", "foo", "qux" };
+            var expected = new string[] { "foo", "bar", "baz", "bar", "foo", "qux" };
 
             source.AddRange(other);
 
-            CollectionAssert.AreEqual(expected, source);
+            Assert.Equal(expected, source);
         }
             
-        [TestMethod]
+        [Fact]
         public void AddRangeIndistinctTest()
         {
             var source = new List<string> { "foo", "bar", "baz" };
-            var other = new List<string> { "bar", "foo", "qux" };
-            var expected = new List<string> { "foo", "bar", "baz", "bar", "foo", "qux" };
+            var other = new string[] { "bar", "foo", "qux" };
+            var expected = new string[] { "foo", "bar", "baz", "bar", "foo", "qux" };
 
             source.AddRange(other, isDistinct: false);
 
-            CollectionAssert.AreEqual(expected, source);
+            Assert.Equal(expected, source);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddRangeDistinctTest()
         {
             var source = new List<string> { "foo", "bar", "baz" };
-            var other = new List<string> { "bar", "foo", "qux" };
-            var expected = new List<string> { "foo", "bar", "baz", "qux" };
+            var other = new string[] { "bar", "foo", "qux" };
+            var expected = new string[] { "foo", "bar", "baz", "qux" };
 
             source.AddRange(other, isDistinct: true);
 
-            CollectionAssert.AreEqual(expected, source);
+            Assert.Equal(expected, source);
         }
     }
 }

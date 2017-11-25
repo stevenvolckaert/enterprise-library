@@ -1,9 +1,8 @@
 ﻿namespace StevenVolckaert.Globalization.Tests
 {
     using Globalization;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
 
-    [TestClass]
     public class CultureManagerTests
     {
         /* TODO Implement the unit tests. For instance: Calling any of the SetCulture methods should return
@@ -11,55 +10,47 @@
          * culture manager (after execution). Steven Volckaert. December 13, 2016.
          */
 
-        //[TestMethod]
+        //[Fact]
         public void CultureManagerTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void CultureManagerTest1()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void GetCultureInfoTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void GetNeutralCultureNameTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void IsCultureSupportedTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void IsSpecificCultureSupportedTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void IsCultureSelectedTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void SetCultureTest1()
         {
-            Assert.Fail();
         }
 
-        [TestMethod]
+        [Fact]
         public void SetCultureTest2()
         {
             var cultureManager =
@@ -68,23 +59,21 @@
                     supportedCultureNames: new string[] { "en-US", "nl-BE" }
                 );
 
-            Assert.AreEqual("en-US", cultureManager.SetCulture("pt", "zh-Hans"));
-            Assert.AreEqual("nl-BE", cultureManager.SetCulture("pt", "zh-Hans", "nl-BE"));
+            Assert.Equal("en-US", cultureManager.SetCulture("pt", "zh-Hans"));
+            Assert.Equal("nl-BE", cultureManager.SetCulture("pt", "zh-Hans", "nl-BE"));
 
             // TODO Add additional asserts.
             // Steven Volckaert. December 13, 2016.
         }
 
-        //[TestMethod]
+        //[Fact]
         public void SetDefaultCultureTest()
         {
-            Assert.Fail();
         }
 
-        //[TestMethod]
+        //[Fact]
         public void SetSpecificCultureTest()
         {
-            Assert.Fail();
         }
     }
 }
