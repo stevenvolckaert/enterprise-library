@@ -150,12 +150,20 @@
             );
         }
 
-        [Fact]
-        public void TryTrimTest()
+        [Theory]
+        [InlineData("Foo", " Foo    ")]
+        [InlineData("Bar", "Bar")]
+        [InlineData("Baz", " Baz")]
+        public void TryTrim(string expected, string subject)
         {
-            Assert.Equal("Foo", " Foo    ".TryTrim());
-            Assert.Equal("Bar", "Bar".TryTrim());
-            Assert.Equal(null, ((String)null).TryTrim());
+            Assert.Equal(expected, subject.TryTrim());
+        }
+
+        [Fact]
+        public void TryTrim_ReturnsNull()
+        {
+            string subject = null;
+            Assert.Null(subject.TryTrim());
         }
     }
 }
