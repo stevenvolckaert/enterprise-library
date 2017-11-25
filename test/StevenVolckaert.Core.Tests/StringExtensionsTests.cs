@@ -83,8 +83,8 @@
         [Fact]
         public void ParseAs_ThrowsArgumentNullException()
         {
-            string str = null;
-            Assert.Throws<ArgumentNullException>(() => str.ParseAs<MockedEnumeration>());
+            string subject = null;
+            Assert.Throws<ArgumentNullException>(() => subject.ParseAs<MockedEnumeration>());
         }
 
         [Fact]

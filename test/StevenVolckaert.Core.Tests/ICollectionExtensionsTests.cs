@@ -8,37 +8,37 @@
         [Fact]
         public void AddRangeTest()
         {
-            var source = new List<string> { "foo", "bar", "baz" };
+            var subject = new List<string> { "foo", "bar", "baz" };
             var other = new string[] { "bar", "foo", "qux" };
             var expected = new string[] { "foo", "bar", "baz", "bar", "foo", "qux" };
 
-            source.AddRange(other);
+            subject.AddRange(other);
 
-            Assert.Equal(expected, source);
+            Assert.Equal(expected, subject);
         }
             
         [Fact]
         public void AddRangeIndistinctTest()
         {
-            var source = new List<string> { "foo", "bar", "baz" };
+            var subject = new List<string> { "foo", "bar", "baz" };
             var other = new string[] { "bar", "foo", "qux" };
             var expected = new string[] { "foo", "bar", "baz", "bar", "foo", "qux" };
 
-            source.AddRange(other, isDistinct: false);
+            subject.AddRange(other, isDistinct: false);
 
-            Assert.Equal(expected, source);
+            Assert.Equal(expected, subject);
         }
 
         [Fact]
         public void AddRangeDistinctTest()
         {
-            var source = new List<string> { "foo", "bar", "baz" };
+            var subject = new List<string> { "foo", "bar", "baz" };
             var other = new string[] { "bar", "foo", "qux" };
             var expected = new string[] { "foo", "bar", "baz", "qux" };
 
-            source.AddRange(other, isDistinct: true);
+            subject.AddRange(other, isDistinct: true);
 
-            Assert.Equal(expected, source);
+            Assert.Equal(expected, subject);
         }
     }
 }
