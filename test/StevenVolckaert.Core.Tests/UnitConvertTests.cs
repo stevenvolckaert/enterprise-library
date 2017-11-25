@@ -1,71 +1,73 @@
 ﻿namespace StevenVolckaert.Tests
 {
-    using System;
     using System.Collections.Generic;
     using Xunit;
 
     public class UnitConvertTests
     {
         /// <summary>
-        ///     A list of tuples that links degrees Celsius to degrees Fahrenheit.
+        ///     Returns a sequence of data that links degrees Celsius to degrees Fahrenheit.
         ///     Source http://www.rapidtables.com/convert/temperature/celsius-to-fahrenheit.htm
         /// </summary>
-        private static readonly List<Tuple<int, int>> _temperatureTuples =
-            new List<Tuple<int, int>>
-            {
-                Tuple.Create(-50, -58),
-                Tuple.Create(-40, -40),
-                Tuple.Create(-30, -22),
-                Tuple.Create(-20, -4),
-                Tuple.Create(-10, 14),
-                Tuple.Create(-9, 16),
-                Tuple.Create(-8, 18),
-                Tuple.Create(-7, 19),
-                Tuple.Create(-6, 21),
-                Tuple.Create(-5, 23),
-                Tuple.Create(-4, 25),
-                Tuple.Create(-3, 27),
-                Tuple.Create(-2, 28),
-                Tuple.Create(-1, 30),
-                Tuple.Create(0, 32),
-                Tuple.Create(1, 34),
-                Tuple.Create(2, 36),
-                Tuple.Create(3, 37),
-                Tuple.Create(4, 39),
-                Tuple.Create(5, 41),
-                Tuple.Create(6, 43),
-                Tuple.Create(7, 45),
-                Tuple.Create(8, 46),
-                Tuple.Create(9, 48),
-                Tuple.Create(10, 50),
-                Tuple.Create(20, 68),
-                Tuple.Create(21, 70),
-                Tuple.Create(30, 86),
-                Tuple.Create(37, 99),
-                Tuple.Create(40, 104),
-                Tuple.Create(50, 122),
-                Tuple.Create(60, 140),
-                Tuple.Create(70, 158),
-                Tuple.Create(80, 176),
-                Tuple.Create(90, 194),
-                Tuple.Create(100, 212),
-                Tuple.Create(200, 392),
-                Tuple.Create(300, 572),
-            };
-
-        [Fact]
-        public void FromCelsiusToFahrenheitTest()
+        public static IEnumerable<object[]> CelsiusToFahrenheitData()
         {
-            _temperatureTuples.ForEach(
-                x => Assert.Equal(x.Item2, UnitConvert.FromCelsiusToFahrenheit(x.Item1))
+            yield return new object[] { -50, -58 };
+            yield return new object[] { -40, -40 };
+            yield return new object[] { -30, -22 };
+            yield return new object[] { -20, -4 };
+            yield return new object[] { -10, 14 };
+            yield return new object[] { -9, 16 };
+            yield return new object[] { -8, 18 };
+            yield return new object[] { -7, 19 };
+            yield return new object[] { -6, 21 };
+            yield return new object[] { -5, 23 };
+            yield return new object[] { -4, 25 };
+            yield return new object[] { -3, 27 };
+            yield return new object[] { -2, 28 };
+            yield return new object[] { -1, 30 };
+            yield return new object[] { 0, 32 };
+            yield return new object[] { 1, 34 };
+            yield return new object[] { 2, 36 };
+            yield return new object[] { 3, 37 };
+            yield return new object[] { 4, 39 };
+            yield return new object[] { 5, 41 };
+            yield return new object[] { 6, 43 };
+            yield return new object[] { 7, 45 };
+            yield return new object[] { 8, 46 };
+            yield return new object[] { 9, 48 };
+            yield return new object[] { 10, 50 };
+            yield return new object[] { 20, 68 };
+            yield return new object[] { 21, 70 };
+            yield return new object[] { 30, 86 };
+            yield return new object[] { 37, 99 };
+            yield return new object[] { 40, 104 };
+            yield return new object[] { 50, 122 };
+            yield return new object[] { 60, 140 };
+            yield return new object[] { 70, 158 };
+            yield return new object[] { 80, 176 };
+            yield return new object[] { 90, 194 };
+            yield return new object[] { 100, 212 };
+            yield return new object[] { 200, 392 };
+            yield return new object[] { 300, 572 };
+        }
+
+        [Theory]
+        [MemberData(nameof(CelsiusToFahrenheitData))]
+        public void FromCelsiustoFahrenheit(int degreesInCelsius, int degreesInFahrenheit)
+        {
+            Assert.Equal(
+                expected: degreesInFahrenheit,
+                actual: UnitConvert.FromCelsiusToFahrenheit(degreesInCelsius)
             );
         }
 
-        [Fact]
-        public void FromFahrenheitToCelsiusTest()
+        [Theory]
+        [MemberData(nameof(CelsiusToFahrenheitData))]
+        public void FromFahrenheitToCelsiusTest(int degreesInCelsius, int degreesInFahrenheit)
         {
-            _temperatureTuples.ForEach(
-                x => Assert.Equal(x.Item1, UnitConvert.FromFahrenheitToCelsius(x.Item2))
+            Assert.Equal(
+                expected: degreesInCelsius,
+                actual: UnitConvert.FromFahrenheitToCelsius(degreesInFahrenheit)
             );
         }
     }
