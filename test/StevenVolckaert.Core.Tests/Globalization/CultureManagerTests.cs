@@ -11,44 +11,44 @@
          */
 
         //[Fact]
-        public void CultureManagerTest()
-        {
-        }
+        //public void CultureManagerTest()
+        //{
+        //}
 
         //[Fact]
-        public void CultureManagerTest1()
-        {
-        }
+        //public void CultureManagerTest1()
+        //{
+        //}
 
         //[Fact]
-        public void GetCultureInfoTest()
-        {
-        }
+        //public void GetCultureInfoTest()
+        //{
+        //}
 
         //[Fact]
-        public void GetNeutralCultureNameTest()
-        {
-        }
+        //public void GetNeutralCultureNameTest()
+        //{
+        //}
 
         //[Fact]
-        public void IsCultureSupportedTest()
-        {
-        }
+        //public void IsCultureSupportedTest()
+        //{
+        //}
 
         //[Fact]
-        public void IsSpecificCultureSupportedTest()
-        {
-        }
+        //public void IsSpecificCultureSupportedTest()
+        //{
+        //}
 
         //[Fact]
-        public void IsCultureSelectedTest()
-        {
-        }
+        //public void IsCultureSelectedTest()
+        //{
+        //}
 
         //[Fact]
-        public void SetCultureTest1()
-        {
-        }
+        //public void SetCultureTest1()
+        //{
+        //}
 
         [Fact]
         public void SetCultureTest2()
@@ -67,13 +67,13 @@
         }
 
         //[Fact]
-        public void SetDefaultCultureTest()
-        {
-        }
+        //public void SetDefaultCultureTest()
+        //{
+        //}
 
         //[Fact]
-        public void SetSpecificCultureTest()
-        {
-        }
+        //public void SetSpecificCultureTest()
+        //{
+        //}
     }
 }
