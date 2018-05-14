@@ -378,6 +378,9 @@
             TSource defaultValue
         )
         {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
             var i = 0;
 
             foreach (var item in source)
