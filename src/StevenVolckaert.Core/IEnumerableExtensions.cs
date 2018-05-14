@@ -349,6 +349,50 @@
             }
         }
 
+        /// <summary>
+        ///     Returns a specified number of contiguous elements from the start of a sequence, padded with
+        ///     elements containing a default value if the sequence contains less elements than the specified
+        ///     number.
+        /// </summary>
+        /// <typeparam name="TSource">
+        ///     The type of the elements of <paramref name="source"/>.
+        /// </typeparam>
+        /// <param name="source">
+        ///     The sequence to return elements from.
+        /// </param>
+        /// <param name="count">
+        ///     The number of elements to return.
+        /// </param>
+        /// <param name="defaultValue"></param>
+        /// <returns>
+        ///     An <see cref="IEnumerable{T}"/> that contains the specified number of elements from the start
+        ///     of the input sequence, padded with elements containing <paramref name="defaultValue"/>
+        ///     if <paramref name="source"/> contains less elements than <paramref name="count"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="source"/> is <c>null</c>.
+        /// </exception>
+        public static IEnumerable<TSource> TakeOrDefault<TSource>(
+            this IEnumerable<TSource> source,
+            int count,
+            TSource defaultValue
+        )
+        {
+            var i = 0;
+
+            foreach (var item in source)
+            {
+                i++;
+                yield return item;
+
+                if (i == count)
+                    yield break;
+            }
+
+            while (i++ < count)
+                yield return defaultValue;
+        }
+
 #if !NET35
         /// <summary>
         ///     Creates a new <see cref="ObservableCollection{T}"/> from a sequence.

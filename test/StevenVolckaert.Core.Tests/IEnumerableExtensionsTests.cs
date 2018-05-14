@@ -192,6 +192,35 @@
         }
 
         [Fact]
+        public void TakeOrDefault_ThrowsImmediatelyWhenArgumentIsNull()
+        {
+            string[] subject = null;
+
+            Assert.Throws<ArgumentNullException>(
+                () => subject.TakeOrDefault(count: 1, defaultValue: string.Empty)
+            );
+        }
+
+        [Theory]
+        [InlineData(1, "qux", "foo")]
+        [InlineData(2, "qux", "foo", "bar")]
+        [InlineData(3, "qux", "foo", "bar", "baz")]
+        [InlineData(4, "qux", "foo", "bar", "baz")]
+        [InlineData(5, "qux", "foo", "bar", "baz")]
+        [InlineData(5, "qux", "foo")]
+        public void TakeOrDefault_Succeeds(int count, string defaultValue, params string[] subject)
+        {
+            var expected = subject.ToArray();
+
+            for (var i = expected.Length; i < count; i++)
+                expected = expected.Append(defaultValue).ToArray();
+
+            var actual = subject.TakeOrDefault(count, defaultValue);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void ToObservableCollectionTest_ThrowsImmediatelyWhenArgumentIsNull()
         {
             string[] subject = null;
