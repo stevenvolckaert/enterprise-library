@@ -342,6 +342,26 @@
         }
 
         /// <summary>
+        ///     Attempts to remove all leading and trailing new line characters from the current
+        ///     <see cref="string"/> instance.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="string"/> to trim.
+        /// </param>
+        /// <returns>
+        ///     The string that remains after all new line characters are removed from
+        ///     the start and end of the given string instance, <see cref="string.Empty"/> if the string was
+        ///     empty, or <c>null</c> if the string was <c>null</c>.
+        /// </returns>
+        public static string TryTrimNewLine(this string value)
+        {
+            if (value.IsNullOrEmpty())
+                return value;
+
+            return value.Trim('\r', '\n');
+        }
+
+        /// <summary>
         ///     Converts the string to a specified enumeration.
         /// </summary>
         /// <typeparam name="TEnum">The type of <see cref="Enum"/> to parse as.</typeparam>

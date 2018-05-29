@@ -107,22 +107,25 @@
         }
 
         [Theory]
-        [InlineData(MockedEnumerationWithoutDefaultValue.Foo, "Foo")]
-        [InlineData(MockedEnumerationWithoutDefaultValue.Bar, "Bar")]
-        [InlineData(default(MockedEnumerationWithoutDefaultValue), "Baz")]
-        public void TryParseAs_EnumerationWithoutDefaultValue_Succeeds(MockedEnumerationWithoutDefaultValue expected, string subject)
+        [InlineData("Foo", MockedEnumerationWithoutDefaultValue.Foo)]
+        [InlineData("Bar", MockedEnumerationWithoutDefaultValue.Bar)]
+        [InlineData("Baz", default(MockedEnumerationWithoutDefaultValue))]
+        public void TryParseAs_EnumerationWithoutDefaultValue_Succeeds(
+            string subject
+,
+            MockedEnumerationWithoutDefaultValue expected)
         {
             Assert.Equal(expected, subject.TryParseAs<MockedEnumerationWithoutDefaultValue>());
         }
 
         [Theory]
-        [InlineData(MockedEnumeration.Foo, "Foo", MockedEnumeration.Foo)]
-        [InlineData(MockedEnumeration.Bar, "Bar", MockedEnumeration.Foo)]
-        [InlineData(MockedEnumeration.Foo, "Baz", MockedEnumeration.Foo)]
-        [InlineData(MockedEnumeration.Bar, null, MockedEnumeration.Bar)]
+        [InlineData("Foo", MockedEnumeration.Foo, MockedEnumeration.Foo)]
+        [InlineData("Bar", MockedEnumeration.Bar, MockedEnumeration.Foo)]
+        [InlineData("Baz", MockedEnumeration.Foo, MockedEnumeration.Foo)]
+        [InlineData(null, MockedEnumeration.Bar, MockedEnumeration.Bar)]
         public void TryParseAs_WithDefaultResult_Succeeds(
-            MockedEnumeration expected,
             string subject,
+            MockedEnumeration expected,
             MockedEnumeration defaultResult
         )
         {
@@ -130,13 +133,12 @@
         }
 
         [Theory]
-        [InlineData(MockedEnumeration.Foo, "foo")]
-        [InlineData(MockedEnumeration.Bar, "bAR")]
-        [InlineData(MockedEnumeration.Foo, "baz")]
+        [InlineData("foo", MockedEnumeration.Foo)]
+        [InlineData("bAR", MockedEnumeration.Bar)]
+        [InlineData("baz", MockedEnumeration.Foo)]
         public void TryParseAs_WithDefaultResult_WhileIgnoringCase_Succeeds(
-            MockedEnumeration expected,
-            string subject
-        )
+            string subject,
+            MockedEnumeration expected)
         {
             Assert.Equal(
                 expected: expected,
@@ -145,19 +147,35 @@
         }
 
         [Theory]
-        [InlineData("Foo", " Foo    ")]
+        [InlineData(null, null)]
+        [InlineData(" ", "")]
+        [InlineData(" Foo    ", "Foo")]
         [InlineData("Bar", "Bar")]
-        [InlineData("Baz", " Baz")]
-        public void TryTrim(string expected, string subject)
+        [InlineData(" Baz", "Baz")]
+        [InlineData("Qux ", "Qux")]
+        public void TryTrim(string subject, string expected)
         {
             Assert.Equal(expected, subject.TryTrim());
         }
 
-        [Fact]
-        public void TryTrim_ReturnsNull()
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("\rfoo bar baz", "foo bar baz")]
+        [InlineData("\r\nfoo bar baz", "foo bar baz")]
+        [InlineData("\nfoo bar baz", "foo bar baz")]
+        [InlineData("\rfoo bar baz\r\r", "foo bar baz")]
+        [InlineData("\rfoo bar baz\r\n\r\n", "foo bar baz")]
+        [InlineData("\rfoo bar baz \n", "foo bar baz ")]
+        [InlineData("foo bar baz\r\n", "foo bar baz")]
+        [InlineData("foo bar baz\r", "foo bar baz")]
+        [InlineData("foo bar baz\n", "foo bar baz")]
+        [InlineData("foo bar baz\r\nqux", "foo bar baz\r\nqux")]
+        [InlineData("foo bar \nbaz \nqux\n", "foo bar \nbaz \nqux")]
+        public void TryTrimNewLine(string subject, string expected)
         {
-            string subject = null;
-            Assert.Null(subject.TryTrim());
+            var actual = subject.TryTrimNewLine();
+            Assert.Equal(expected, actual);
         }
     }
 }
