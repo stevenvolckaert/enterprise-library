@@ -215,6 +215,15 @@ namespace StevenVolckaert {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source sequence is empty..
+        /// </summary>
+        public static string SourceSequenceEmpty {
+            get {
+                return ResourceManager.GetString("SourceSequenceEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value contains no elements..
         /// </summary>
         public static string ValueContainsNoElements {
@@ -229,6 +238,15 @@ namespace StevenVolckaert {
         public static string ValueContainsNoSupportedElements {
             get {
                 return ResourceManager.GetString("ValueContainsNoSupportedElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value is negative..
+        /// </summary>
+        public static string ValueNegative {
+            get {
+                return ResourceManager.GetString("ValueNegative", resourceCulture);
             }
         }
         

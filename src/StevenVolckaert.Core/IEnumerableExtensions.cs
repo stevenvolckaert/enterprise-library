@@ -65,6 +65,88 @@
                 yield return sourceElement;
         }
 
+        private static Random random = new Random();
+
+        /// <summary>
+        ///     Returns a single element at a random position in a sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">The sequence to return a random element from.</param>
+        /// <returns>
+        ///     A random element contained in <paramref name="source"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="source"/> is <c>null</c>.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        ///     <paramref name="source"/> contains no elements.
+        /// </exception>
+        public static TSource Random<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (source.IsEmpty())
+                throw new InvalidOperationException(Resources.SourceSequenceEmpty);
+
+            var index = random.Next(maxValue: source.Count());
+            return source.ElementAt(index);
+        }
+
+        /// <summary>
+        ///     Returns a specified number of elements, each at a random position in a sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">The sequence to return a random element from.</param>
+        /// <param name="numberOfElements">The number of elements to return.</param>
+        /// <returns>
+        ///     A sequence containing <paramref name="numberOfElements"/> elements.
+        /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="source"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="numberOfElements"/> is negative.</exception>"
+        /// <exception cref="InvalidOperationException"><paramref name="numberOfElements"/> contains no elements.</exception>
+        public static IEnumerable<TSource> Random<TSource>(this IEnumerable<TSource> source, int numberOfElements)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            if (source.IsEmpty())
+                throw new InvalidOperationException(Resources.SourceSequenceEmpty);
+
+            if (numberOfElements < 0)
+                throw new ArgumentOutOfRangeException(paramName: nameof(numberOfElements), message: Resources.ValueNegative);
+
+            if (numberOfElements == 0)
+                yield break;
+
+            for (int i = 0; i < numberOfElements; i++)
+                yield return source.Random();
+        }
+
+        /// <summary>
+        ///     Returns a single element at a random position in a sequence, or a default value
+        ///     if the sequence contains no elements.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+        /// <param name="source">The sequence to return a random element from.</param>
+        /// <returns>
+        ///     <c>default(TSource)</c> if <paramref name="source"/> is empty; othwerise,
+        ///     a single element at a random poisition in <paramref name="source"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="source"/> is <c>null</c>.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        ///     <paramref name="source"/> contains no elements.
+        /// </exception>
+        public static TSource RandomOrDefault<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            return source.IsEmpty() ? default(TSource) : source.Random();
+        }
+
         /// <summary>
         ///     Determines whether a sequence contains no elements.
         /// </summary>

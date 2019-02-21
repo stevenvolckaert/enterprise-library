@@ -191,6 +191,51 @@
             Assert.Equal(expected, actual);
         }
 
+        [Theory]
+        [InlineData(0)]
+        [InlineData(3)]
+        [InlineData(10)]
+        [InlineData(12)]
+        public void Random_ReturnsSpecifiedNumberOfElements(int numberOfElements)
+        {
+            var subject = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var actual = subject.Random(numberOfElements);
+            Assert.Equal(numberOfElements, actual.Count());
+        }
+
+        [Fact]
+        public void Random_ThrowsArgumentNullException()
+        {
+            IEnumerable<string> subject = null;
+            Assert.Throws<ArgumentNullException>(() => subject.Random());
+        }
+
+        [Fact]
+        public void Random_ThrowsInvalidOperationException()
+        {
+            var subject = Enumerable.Empty<string>();
+            Assert.Throws<InvalidOperationException>(() => subject.Random());
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(3)]
+        [InlineData(10)]
+        [InlineData(12)]
+        public void RandomOrDefault_ReturnsSpecifiedNumberOfElements(int numberOfElements)
+        {
+            var subject = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var actual = subject.Random(numberOfElements);
+            Assert.Equal(numberOfElements, actual.Count());
+        }
+
+        [Fact]
+        public void RandomOrDefault_ReturnsDefaultIfSourceSequenceIsEmpty()
+        {
+            var subject = Enumerable.Empty<int>();
+            Assert.Equal(default(int), subject.RandomOrDefault());
+        }
+
         // TODO This test fails for some reason; investigate why. -Steven Volckaert. May 14, 2018.
 
         //[Fact]

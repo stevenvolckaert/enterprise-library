@@ -168,11 +168,17 @@
   <data name="Minutes" xml:space="preserve">
     <value>minutes</value>
   </data>
+  <data name="SourceSequenceEmpty" xml:space="preserve">
+    <value>Source sequence is empty.</value>
+  </data>
   <data name="ValueContainsNoElements" xml:space="preserve">
     <value>Value contains no elements.</value>
   </data>
   <data name="ValueContainsNoSupportedElements" xml:space="preserve">
     <value>Value contains no supported elements.</value>
+  </data>
+  <data name="ValueNegative" xml:space="preserve">
+    <value>Value is negative.</value>
   </data>
   <data name="ValueNotFound" xml:space="preserve">
     <value>Value with ID '{0}' not found.</value>
