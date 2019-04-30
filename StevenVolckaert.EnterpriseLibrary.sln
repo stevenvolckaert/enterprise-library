@@ -13,12 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{887100A5-003F-4148-85D8-9D9C9E7E5125}"
+	ProjectSection(SolutionItems) = preProject
+		test\common.props = test\common.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54EC9438-05ED-4ACD-AEF6-B31B353069EA}"
+	ProjectSection(SolutionItems) = preProject
+		src\common.props = src\common.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StevenVolckaert.Core", "src\StevenVolckaert.Core\StevenVolckaert.Core.csproj", "{9493EB60-BD91-426A-BDF1-4390456046E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StevenVolckaert.Core.Tests", "test\StevenVolckaert.Core.Tests\StevenVolckaert.Core.Tests.csproj", "{F6EAF516-F648-48C8-93EE-EC532AD996CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StevenVolckaert.Core.Tests", "test\StevenVolckaert.Core.Tests\StevenVolckaert.Core.Tests.csproj", "{F6EAF516-F648-48C8-93EE-EC532AD996CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

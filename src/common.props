@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <Authors>Steven Volckaert</Authors>
+    <Copyright>Copyright (c) 2016-2019 Steven Volckaert</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+</Project>
