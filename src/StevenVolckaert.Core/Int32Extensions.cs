@@ -36,14 +36,16 @@
         /// </returns>
         public static string BytesToString(this int value)
         {
-            return ((ulong)value).BytesToString();
+            return ((long)value).BytesToString();
         }
 
         /// <summary>
         ///     Returns a string that represent the <see cref="int"/> value in a human-readable format. 
         /// </summary>
         /// <param name="value">The <see cref="int"/> value, in bytes.</param>
-        /// <param name="prefix">The prefix to be used in the string representation.</param>
+        /// <param name="prefix">
+        ///     The prefix to be used in the string representation.
+        /// </param>
         /// <exception cref="ArgumentOutOfRangeException">
         ///     <paramref name="prefix"/> has an illegal value.
         /// </exception>
@@ -52,7 +54,7 @@
         /// </returns>
         public static string BytesToString(this int value, UnitOfInformationPrefix prefix)
         {
-            return ((ulong)value).BytesToString(prefix);
+            return ((long)value).BytesToString(prefix);
         }
 
         /// <summary>
@@ -61,7 +63,7 @@
         /// <param name="value">The <see cref="int"/> value, in kibibytes (KiB).</param>
         public static string KibibytesToString(this int value)
         {
-            return ((ulong)value).KibibytesToString();
+            return ((long)value).KibibytesToString();
         }
 
         /// <summary>
@@ -70,7 +72,7 @@
         /// <param name="value">The <see cref="int"/> value, in kilobytes (kB).</param>
         public static string KilobytesToString(this int value)
         {
-            return ((ulong)value).KilobytesToString();
+            return ((long)value).KilobytesToString();
         }
 
         /// <summary>
@@ -79,7 +81,7 @@
         /// <param name="value">The <see cref="int"/> value, in mebibytes (MiB).</param>
         public static string MebibytesToString(this int value)
         {
-            return ((ulong)value).MebibytesToString();
+            return ((long)value).MebibytesToString();
         }
 
         /// <summary>
@@ -88,7 +90,7 @@
         /// <param name="value">The <see cref="int"/> value, in megabytes (MB).</param>
         public static string MegabytesToString(this int value)
         {
-            return ((ulong)value).MegabytesToString();
+            return ((long)value).MegabytesToString();
         }
 
         /// <summary>

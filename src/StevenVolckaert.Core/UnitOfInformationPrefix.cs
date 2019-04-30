@@ -6,15 +6,17 @@
     public enum UnitOfInformationPrefix
     {
         /// <summary>
-        ///     No prefix, indicating a power of 1.
+        ///     No prefix, i.e. a power of 1.
         /// </summary>
         None = 0,
+
         /// <summary>
-        /// A decimal prefix, indicating a power of 1000.
+        ///     A decimal prefix, i.e. a power of 1000.
         /// </summary>
         Decimal = 1000,
+
         /// <summary>
-        /// A binary prefix, indicating a power of 1024.
+        ///     A binary prefix, i.e. a power of 1024.
         /// </summary>
         Binary = 1024
     }
