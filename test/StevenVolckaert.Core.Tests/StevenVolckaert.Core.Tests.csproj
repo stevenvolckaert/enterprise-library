@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>StevenVolckaert.Tests</RootNamespace>
+    <RootNamespace>StevenVolckaert</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace StevenVolckaert.Tests
+﻿namespace StevenVolckaert
 {
     using Xunit;
 
