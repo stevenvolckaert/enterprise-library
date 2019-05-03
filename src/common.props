@@ -3,8 +3,13 @@
   <PropertyGroup>
     <Authors>Steven Volckaert</Authors>
     <Copyright>Copyright (c) 2016-2019 Steven Volckaert</Copyright>
+    <Description>Steven Volckaert's Enterprise Library contains reusable software components designed to assist software developers with writing less and semantically more meaningful code. See https://github.com/stevenvolckaert/enterprise-library for more information.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageLicenseUrl>https://github.com/stevenvolckaert/enterprise-library/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/stevenvolckaert/enterprise-library</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/stevenvolckaert/enterprise-library</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
