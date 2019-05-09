@@ -1,5 +1,7 @@
 <Project>
 
+  <!-- https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reserved-and-well-known-properties -->
+
   <PropertyGroup>
     <Authors>Steven Volckaert</Authors>
     <Copyright>Copyright (c) 2016-2019 Steven Volckaert</Copyright>
