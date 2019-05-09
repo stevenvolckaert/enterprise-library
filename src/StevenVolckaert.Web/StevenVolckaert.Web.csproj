@@ -6,9 +6,7 @@
     <AssemblyName>StevenVolckaert.Web</AssemblyName>
     <AssemblyTitle>Steven Volckaert's Enterprise Library - Web</AssemblyTitle>
     <TargetFramework>net472</TargetFramework>
-    <PackageId>$(AssemblyName)</PackageId>
     <RootNamespace>$(AssemblyName)</RootNamespace>
-    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

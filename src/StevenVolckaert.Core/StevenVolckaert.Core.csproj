@@ -6,13 +6,11 @@
     <AssemblyName>StevenVolckaert.Core</AssemblyName>
     <AssemblyTitle>Steven Volckaert's Enterprise Library - Core</AssemblyTitle>
     <TargetFrameworks>netstandard1.5;net452</TargetFrameworks>
-    <PackageId>StevenVolckaert.Core</PackageId>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.5' ">1.6.1</NetStandardImplicitPackageVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>StevenVolckaert</RootNamespace>
-    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
