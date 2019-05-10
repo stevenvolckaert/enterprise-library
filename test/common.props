@@ -1,5 +1,6 @@
 <Project>
 
+  <!-- https://docs.microsoft.com/en-us/dotnet/core/tools/csproj -->
   <!-- https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reserved-and-well-known-properties -->
 
   <PropertyGroup>
