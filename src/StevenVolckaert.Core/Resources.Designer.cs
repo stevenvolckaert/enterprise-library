@@ -251,6 +251,15 @@ namespace StevenVolckaert {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value does not represent a System.Guid value..
+        /// </summary>
+        public static string ValueNotAGuid {
+            get {
+                return ResourceManager.GetString("ValueNotAGuid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value with ID &apos;{0}&apos; not found..
         /// </summary>
         public static string ValueNotFound {

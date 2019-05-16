@@ -180,6 +180,9 @@
   <data name="ValueNegative" xml:space="preserve">
     <value>Value is negative.</value>
   </data>
+  <data name="ValueNotAGuid" xml:space="preserve">
+    <value>Value does not represent a System.Guid value.</value>
+  </data>
   <data name="ValueNotFound" xml:space="preserve">
     <value>Value with ID '{0}' not found.</value>
   </data>

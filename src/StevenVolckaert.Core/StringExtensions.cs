@@ -207,6 +207,33 @@
         }
 
         /// <summary>
+        ///     Converts the string to a <see cref="Guid"/> structure.
+        /// </summary>
+        /// <param name="value">The <see cref="string"/> value to convert.</param>
+        /// <returns>
+        ///     A new instance of the <see cref="Guid"/> structure. 
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="value"/> is <c>null</c>.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        ///     <paramref name="value"/> does not represent a <see cref="Guid"/> value.
+        /// </exception>
+        public static Guid ToGuid(this string value)
+        {
+            if (value is null)
+                throw new ArgumentNullException(nameof(value));
+
+            if (value.IsGuid() == false)
+                throw new ArgumentException(
+                    message: Resources.ValueNotAGuid,
+                    paramName: nameof(value)
+                );
+
+            return new Guid(value);
+        }
+
+        /// <summary>
         ///     Converts the string representation of a number to its 32-bit signed integer equivalent,
         ///     or returns 0 if the conversion fails.
         /// </summary>
