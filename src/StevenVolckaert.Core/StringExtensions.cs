@@ -5,6 +5,7 @@
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
 
     /// <summary>
@@ -204,6 +205,106 @@
                 throw new ArgumentNullException(nameof(value));
 
             return value.Split(separator, StringSplitOptions.RemoveEmptyEntries).Cast<T>().ToList();
+        }
+
+        /// <summary>
+        ///     Converts the string to its Base64-encoded equivalent, using UTF-8 encoding.
+        /// </summary>
+        /// <param name="value">The <see cref="string"/> value to encode.</param>
+        /// <returns>
+        ///     The Base64-encoded equivalent of <paramref name="value"/>.
+        /// </returns>
+        public static string ToBase64(this string value) => value.ToBase64(Encoding.UTF8);
+
+        /// <summary>
+        ///     Converts the string to its Base64-encoded equivalent, using the specified
+        ///     <see cref="Encoding"/>.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="string"/> value to encode.
+        /// </param>
+        /// <param name="encoding">
+        ///     The <see cref="Encoding"/> to use.
+        /// </param>
+        /// <returns>
+        ///     The Base64-encoded equivalent of <paramref name="value"/>.
+        /// </returns>
+        public static string ToBase64(this string value, Encoding encoding)
+        {
+            if (value.IsNullOrEmpty())
+                return value;
+
+            var byteArray = encoding.GetBytes(value);
+            return Convert.ToBase64String(byteArray);
+        }
+
+        /// <summary>
+        ///     Converts a Base64-encoded string to its non-Base64 equivalent, using UTF-8 encoding.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="string"/> value to parse.
+        /// </param>
+        /// <returns>
+        ///     The Base64-decoded equivalent of <paramref name="value"/>.
+        /// </returns>
+        public static string ParseAsBase64(this string value) => value.ParseAsBase64(Encoding.UTF8);
+
+        /// <summary>
+        ///     Converts a Base64-encoded string to its non-Base64 equivalent, using the specified
+        ///     <see cref="Encoding"/>.
+        /// </summary>
+        /// <param name="value">
+        ///     The <see cref="string"/> value to parse.
+        /// </param>
+        /// <param name="encoding">
+        ///     The <see cref="Encoding"/> to use.
+        /// </param>
+        /// <returns>
+        ///     The Base64-decoded equivalent of <paramref name="value"/>.
+        /// </returns>
+        public static string ParseAsBase64(this string value, Encoding encoding)
+        {
+            if (value.IsNullOrEmpty())
+                return value;
+
+            value.TryParseAsBase64(out var returnValue, encoding);
+            return returnValue;
+        }
+
+        /// <summary>
+        ///     Attempts to decode a Base64-encoded string using the specified encoding.
+        /// </summary>
+        /// <param name="value">
+        ///     The Base64-encoded <see cref="string"/> value to decode.
+        /// </param>
+        /// <param name="decodedValue">
+        ///     The decoded <see cref="string"/> value, or <c>null</c> if the conversion failed.
+        /// </param>
+        /// <param name="encoding">
+        ///     The <see cref="Encoding"/> to use.
+        /// </param>
+        /// <returns>
+        ///     The Base64-decoded representation of <paramref name="value"/>.
+        /// </returns>
+        public static bool TryParseAsBase64(this string value, out string decodedValue, Encoding encoding)
+        {
+            if (value == null)
+            {
+                decodedValue = null;
+                return false;
+            }
+
+            try
+            {
+                var byteArray = Convert.FromBase64String(value);
+                decodedValue = encoding.GetString(byteArray);
+                return true;
+            }
+            catch (Exception)
+            {
+                decodedValue = null;
+                return false;
+            }
         }
 
         /// <summary>

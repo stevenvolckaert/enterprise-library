@@ -1,6 +1,8 @@
 ﻿namespace StevenVolckaert
 {
     using System;
+    using System.Collections.Generic;
+    using System.Text;
     using Xunit;
 
     public class StringExtensionsTests
@@ -176,6 +178,63 @@
         {
             var actual = subject.TryTrimNewLine();
             Assert.Equal(expected, actual);
+        }
+
+        /// <summary>
+        ///     Returns a sequence of data that links string values to its Base64-encoded equivalent.
+        ///     Source @ https://www.base64encode.org/
+        /// </summary>
+        public static IEnumerable<object[]> StringToBase64Data()
+        {
+            yield return new object[] { "Foo", "Rm9v" };
+            yield return new object[] { "BAR", "QkFS" };
+            yield return new object[] { "baz", "YmF6" };
+            yield return new object[] { "Lorem ipsum dolor sit amet...", "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQuLi4=" };
+            yield return new object[]
+            {
+                "Despite the constant negative ipsum covfefe. I will write some great placeholder text - and nobody writes better placeholder text than me, believe me - and I'll write it very inexpensively. I will write some great, great text on your website's Southern border, and I will make Google pay for that text. Mark my words. An 'extremely credible source' has called my office and told me that Barack Obama's placeholder text is a fraud. The best taco bowls are made in Trump Tower Grill. I love Hispanics! Lorem Ipsum is the single greatest threat. We are not - we are not keeping up with other websites.",
+                "RGVzcGl0ZSB0aGUgY29uc3RhbnQgbmVnYXRpdmUgaXBzdW0gY292ZmVmZS4gSSB3aWxsIHdyaXRlIHNvbWUgZ3JlYXQgcGxhY2Vob2xkZXIgdGV4dCAtIGFuZCBub2JvZHkgd3JpdGVzIGJldHRlciBwbGFjZWhvbGRlciB0ZXh0IHRoYW4gbWUsIGJlbGlldmUgbWUgLSBhbmQgSSdsbCB3cml0ZSBpdCB2ZXJ5IGluZXhwZW5zaXZlbHkuIEkgd2lsbCB3cml0ZSBzb21lIGdyZWF0LCBncmVhdCB0ZXh0IG9uIHlvdXIgd2Vic2l0ZSdzIFNvdXRoZXJuIGJvcmRlciwgYW5kIEkgd2lsbCBtYWtlIEdvb2dsZSBwYXkgZm9yIHRoYXQgdGV4dC4gTWFyayBteSB3b3Jkcy4gQW4gJ2V4dHJlbWVseSBjcmVkaWJsZSBzb3VyY2UnIGhhcyBjYWxsZWQgbXkgb2ZmaWNlIGFuZCB0b2xkIG1lIHRoYXQgQmFyYWNrIE9iYW1hJ3MgcGxhY2Vob2xkZXIgdGV4dCBpcyBhIGZyYXVkLiBUaGUgYmVzdCB0YWNvIGJvd2xzIGFyZSBtYWRlIGluIFRydW1wIFRvd2VyIEdyaWxsLiBJIGxvdmUgSGlzcGFuaWNzISBMb3JlbSBJcHN1bSBpcyB0aGUgc2luZ2xlIGdyZWF0ZXN0IHRocmVhdC4gV2UgYXJlIG5vdCAtIHdlIGFyZSBub3Qga2VlcGluZyB1cCB3aXRoIG90aGVyIHdlYnNpdGVzLg=="
+            };
+        }
+
+        [Theory]
+        [MemberData(nameof(StringToBase64Data))]
+        public void ToBase64Test(string value, string base64EncodedValue)
+        {
+            Assert.Equal(
+                expected: base64EncodedValue,
+                actual: value.ToBase64()
+            );
+        }
+
+        [Theory]
+        [MemberData(nameof(StringToBase64Data))]
+        public void ToBase64WithEncodingTest(string value, string base64EncodedValue)
+        {
+            Assert.Equal(
+                expected: base64EncodedValue,
+                actual: value.ToBase64(Encoding.ASCII)
+            );
+        }
+
+        [Theory]
+        [MemberData(nameof(StringToBase64Data))]
+        public void ParseAsBase64Test(string value, string base64EncodedValue)
+        {
+            Assert.Equal(
+                expected: value,
+                actual: base64EncodedValue.ParseAsBase64()
+            );
+        }
+
+        [Theory]
+        [MemberData(nameof(StringToBase64Data))]
+        public void ParseAsBase64WithEncodingTest(string value, string base64EncodedValue)
+        {
+            Assert.Equal(
+                expected: value,
+                actual: base64EncodedValue.ParseAsBase64(Encoding.ASCII)
+            );
         }
     }
 }
