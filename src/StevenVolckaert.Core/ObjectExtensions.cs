@@ -43,33 +43,5 @@
                 ? ((List<object>)source).Cast<TResult>().ToList()
                 : result;
         }
-
-        /// <summary>
-        ///     Returns a value that indicates whether the object is <c>null</c>.
-        /// </summary>
-        /// <param name="value">
-        ///     The <see cref="object"/> instance this extension method affects.
-        /// </param>
-        /// <returns>
-        ///     <c>true</c> if <paramref name="value"/> is <c>null</c>; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsNull(this object value)
-        {
-            return null == value;
-        }
-
-        /// <summary>
-        ///     Returns a value that indicates whether the object is not <c>null</c>.
-        /// </summary>
-        /// <param name="value">
-        ///     The <see cref="object"/> instance this extension method affects.
-        /// </param>
-        /// <returns>
-        ///     <c>true</c> if <paramref name="value"/> is not <c>null</c>; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsNotNull(this object value)
-        {
-            return null != value;
-        }
     }
 }

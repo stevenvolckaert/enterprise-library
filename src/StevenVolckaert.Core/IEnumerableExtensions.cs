@@ -177,7 +177,7 @@
         /// </returns>
         public static bool IsNullOrEmpty<TSource>(this IEnumerable<TSource> source)
         {
-            return source.IsNull() || source.IsEmpty();
+            return source is null || source.IsEmpty();
         }
 
         /// <summary>
