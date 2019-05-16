@@ -37,11 +37,10 @@
         )]
         public static List<TResult> AsList<TResult>(this object source)
         {
-            var result = source as List<TResult>;
+            if (source is null)
+                throw new ArgumentNullException(nameof(source));
 
-            return result == null
-                ? ((List<object>)source).Cast<TResult>().ToList()
-                : result;
+            return source as List<TResult> ?? ((List<object>)source).Cast<TResult>().ToList();
         }
     }
 }
