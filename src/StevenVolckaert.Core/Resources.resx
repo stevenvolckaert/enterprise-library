@@ -183,6 +183,9 @@
   <data name="ValueNotFound" xml:space="preserve">
     <value>Value with ID '{0}' not found.</value>
   </data>
+  <data name="ValueNotSerializable" xml:space="preserve">
+    <value>Value is not serializable.</value>
+  </data>
   <data name="ValueNotSupported" xml:space="preserve">
     <value>Value '{0}' is not supported.</value>
   </data>

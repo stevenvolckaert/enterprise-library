@@ -42,5 +42,57 @@
 
             return source as List<TResult> ?? ((List<object>)source).Cast<TResult>().ToList();
         }
+
+#if NET452 || NETSTANDARD1_6
+
+        /// <summary>
+        ///     Creates a deep copy of the current <see cref="object"/>.
+        ///     The type must be annotated with the <see cref="SerializableAttribute"/>.
+        /// </summary>
+        /// <typeparam name="T">
+        ///     The type of <paramref name="obj"/>. Ensure it is annotated with the
+        ///     <see cref="SerializableAttribute"/>.
+        /// </typeparam>
+        /// <param name="obj">
+        ///     The <see cref="object"/> instance this extension method affects.
+        /// </param>
+        /// <returns>
+        ///     A deep copy op the current <see cref="object"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     <paramref name="obj"/> is <c>null</c>.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        ///     <paramref name="obj"/> is not serializable. Ensure type <typeparamref name="T"/>
+        ///     is annotated with the <see cref="SerializableAttribute"/>.
+        /// </exception>
+        public static T DeepCopy<T>(this T obj)
+        {
+            if (ReferenceEquals(obj, null))
+                throw new ArgumentNullException(nameof(obj));
+
+            if (typeof(T).IsSerializable == false)
+                throw new ArgumentException(
+                    message: Resources.ValueNotSerializable,
+                    paramName: nameof(obj)
+                );
+
+            T returnValue;
+
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                var formatter =
+                    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                formatter.Serialize(memoryStream, obj);
+                memoryStream.Seek(offset: 0, loc: System.IO.SeekOrigin.Begin);
+                returnValue = (T)formatter.Deserialize(memoryStream);
+                memoryStream.Close();
+            }
+
+            return returnValue;
+        }
+
+#endif
     }
 }

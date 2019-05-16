@@ -260,6 +260,15 @@ namespace StevenVolckaert {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value is not serializable..
+        /// </summary>
+        public static string ValueNotSerializable {
+            get {
+                return ResourceManager.GetString("ValueNotSerializable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value &apos;{0}&apos; is not supported..
         /// </summary>
         public static string ValueNotSupported {
