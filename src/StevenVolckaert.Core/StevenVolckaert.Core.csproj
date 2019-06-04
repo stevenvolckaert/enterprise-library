@@ -14,10 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <!-- Docs @ https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-target-frameworks -->
     <Reference Include="System" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <!-- Docs @ https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-target-frameworks -->
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>

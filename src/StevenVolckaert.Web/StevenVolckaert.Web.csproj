@@ -9,7 +9,8 @@
     <RootNamespace>$(AssemblyName)</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <!-- Docs @ https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-target-frameworks -->
     <Reference Include="System.Web" />
   </ItemGroup>
 
